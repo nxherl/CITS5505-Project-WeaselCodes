@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeaselCode - Tutorial</title>
+  </head>
+  <body>
+    <!-- navigation -->
+    <nav>
+      <a href="index.html">WeaselCode</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="reflection.html">AI Reflection</a></li>
+        <li><a href="cv.html">About Me</a></li>
+      </ul>
+    </nav>
+
+    <!-- hero -->
+    <div>
+      <p>// The way of the weasel</p>
+      <h1>Web Development</h1>
+      <p>
+        You've been surfing the web your whole life.<br />
+        Time to learn what's underneath the waves..!
+      </p>
+      <p>Choose a topic below to explore: HTML, CSS, and JavaScript.</p>
+      <img src="assets/img/weasel.png" alt="WeaselCode mascot" />
+    </div>
+
+    <!-- tab buttons -->
+    <div>
+      <button id="btn-html">&lt;/&gt; HTML - The Structure</button>
+      <button id="btn-css"># CSS - The Style</button>
+      <button id="btn-js">JS JavaScript - The Behaviour</button>
+    </div>
+
+    <!-- HTML panel -->
+    <div id="panel-html">
+      <h2>What is HTML?</h2>
+      <p>
+        HTML (HyperText Markup Language) is the skeleton of the web. No muscles,
+        no skin! Just bare bones telling the browser what goes where. Before CSS
+        makes it pretty and JavaScript makes it dance, HTML is there doing the
+        unglamorous work of holding everything together. HTML uses elements to
+        describe the structure and meaning of content. The browser reads your
+        HTML and renders it as a visual page.
+      </p>
+
+      <h3>Basic HTML structure</h3>
+      <p>
+        Every HTML file starts with &lt;!DOCTYPE html&gt; a one-liner that tells
+        the browser to use modern HTML5 rules. It's like a letter. The
+        &lt;head&gt; is the envelope; nobody reads it but it tells the post
+        office what to do. The &lt;body&gt; is the letter itself.
+      </p>
+      <pre><code>
+&lt;!-- A minimal HTML5 document --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, world!&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+    </code></pre>
+
+      <h3>Common HTML elements</h3>
+      <p>
+        HTML has over 100 elements, but you will use a small set most of the
+        time:
+      </p>
+      <pre><code>
+&lt;!-- Headings: h1 is largest, h6 is smallest --&gt;
+&lt;h1&gt;Main heading&lt;/h1&gt;
+&lt;h2&gt;Sub-heading&lt;/h2&gt;
+
+&lt;!-- Paragraph --&gt;
+&lt;p&gt;This is a paragraph of text.&lt;/p&gt;
+
+&lt;!-- Hyperlink --&gt;
+&lt;a href="quiz.html"&gt;Go to quiz&lt;/a&gt;
+
+&lt;!-- Image --&gt;
+&lt;img src="assets/img/photo.jpg" alt="My photo" /&gt;
+
+&lt;!-- Unordered list --&gt;
+&lt;ul&gt;
+  &lt;li&gt;First item&lt;/li&gt;
+  &lt;li&gt;Second item&lt;/li&gt;
+&lt;/ul&gt;
+    </code></pre>
+
+      <h3>Semantic HTML</h3>
+      <p>
+        Semantic elements describe the purpose of the content, not just how it
+        looks. This helps search engines and screen readers understand your
+        page.
+      </p>
+      <pre><code>
+&lt;header&gt;  &lt;!-- top of the page --&gt;
+&lt;nav&gt;     &lt;!-- navigation links --&gt;
+&lt;main&gt;    &lt;!-- main page content --&gt;
+&lt;section&gt; &lt;!-- a standalone section --&gt;
+&lt;article&gt; &lt;!-- self-contained content --&gt;
+&lt;footer&gt;  &lt;!-- bottom of the page --&gt;
+    </code></pre>
+    </div>
+
+    <!-- CSS panel -->
+    <div id="panel-css">
+      <h2>What is CSS?</h2>
+      <p>
+        CSS (Cascading Style Sheets) controls how HTML elements look. While HTML
+        defines the structure of a page, CSS defines its appearance — colours,
+        fonts, spacing, and layout.
+      </p>
+
+      <h3>CSS syntax</h3>
+      <pre><code>
+/* selector { property: value; } */
+
+h1 {
+  color: #00BFFF;
+  font-size: 2rem;
+  text-align: center;
+}
+
+p {
+  color: #8b95a8;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+    </code></pre>
+
+      <h3>Selectors</h3>
+      <pre><code>
+/* Element selector */
+p { color: white; }
+
+/* Class selector */
+.highlight { background-color: yellow; }
+
+/* ID selector */
+#logo { width: 120px; }
+
+/* Descendant selector */
+nav a { text-decoration: none; }
+    </code></pre>
+
+      <h3>The box model</h3>
+      <p>
+        Every HTML element is a rectangular box with content, padding, border,
+        and margin.
+      </p>
+      <pre><code>
+.box {
+  width: 300px;
+  padding: 16px;
+  border: 2px solid #00BFFF;
+  margin: 24px;
+}
+    </code></pre>
+
+      <h3>Responsive design with Bootstrap</h3>
+      <p>Bootstrap provides a grid system using 12 columns.</p>
+      <pre><code>
+&lt;div class="row"&gt;
+  &lt;div class="col-md-6"&gt;Left column&lt;/div&gt;
+  &lt;div class="col-md-6"&gt;Right column&lt;/div&gt;
+&lt;/div&gt;
+    </code></pre>
+    </div>
+
+    <!-- JS panel -->
+    <div id="panel-js">
+      <h2>What is JavaScript?</h2>
+      <p>
+        JavaScript (JS) is a programming language that runs in the browser.
+        While HTML provides structure and CSS provides style, JavaScript adds
+        behaviour — responding to user actions, updating content dynamically,
+        and communicating with servers.
+      </p>
+
+      <h3>Variables and data types</h3>
+      <pre><code>
+// Declaring variables
+const siteName = "WeaselCode";  // string
+let score = 0;                  // number
+let passed = false;             // boolean
+
+// Array
+const topics = ["HTML", "CSS", "JavaScript"];
+
+// Object
+const user = {
+  name: "Alex",
+  score: 8,
+  passed: true
+};
+    </code></pre>
+
+      <h3>Functions</h3>
+      <pre><code>
+function greet(name) {
+  return "Hello, " + name + "!";
+}
+
+const message = greet("Alex");
+console.log(message); // "Hello, Alex!"
+    </code></pre>
+
+      <h3>DOM manipulation</h3>
+      <pre><code>
+const heading = document.getElementById("main-title");
+heading.textContent = "New title!";
+heading.style.color = "#00BFFF";
+    </code></pre>
+
+      <h3>Events</h3>
+      <pre><code>
+const btn = document.getElementById("my-btn");
+
+btn.addEventListener("click", function() {
+  alert("Button was clicked!");
+});
+    </code></pre>
+    </div>
+
+    <!-- quiz cta -->
+    <div>
+      <h2>Ready to test yourself?</h2>
+      <p>You've covered HTML, CSS, and JavaScript. Now take the quiz.</p>
+      <a href="quiz.html">Take the quiz</a>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <p>&copy; 2026 WeaselCode</p>
+    </footer>
+  </body>
+</html>
