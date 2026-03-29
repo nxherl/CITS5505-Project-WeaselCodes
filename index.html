@@ -3,22 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WeaselCode - Tutorial</title>
-    <!-- Bootstrap for grid and utilities -->
+    <title>WeaselCodes - Home</title>
+    <!-- Load Bootstrap from CDN (no local copy) -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     />
-    <!-- Custom styles -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- navigation -->
+    <!-- ===================== NAVIGATION ===================== -->
     <nav class="navbar">
       <div class="container">
-        <a href="index.html" class="nav-logo">Weasel<span>Code</span></a>
+        <!-- Logo / Brand -->
+        <a href="index.html" class="nav-logo">Weasel<span>Codes</span></a>
+
+        <!-- Nav links -->
         <ul class="nav-links">
-          <li><a href="index.html" class="active">Tutorial</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
           <li><a href="quiz.html">Quiz</a></li>
           <li><a href="reflection.html">AI Reflection</a></li>
           <li><a href="cv.html">About Me</a></li>
@@ -26,83 +28,96 @@
       </div>
     </nav>
 
-    <!-- page wrapper -->
+    <!-- ===================== PAGE CONTENT ===================== -->
     <div class="page-wrapper">
-      <div class="container">
-        <!-- hero -->
-        <div
-          class="hero"
-          style="
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 32px;
-          "
-        >
-          <div style="flex: 1; min-width: 0">
-            <p class="hero-label">// The way of the weasel</p>
-            <h1>Web Development</h1>
-            <p>
-              You've been surfing the web your whole life.<br />
-              Time to learn what's underneath the waves..!
-            </p>
-            <p>Choose a topic below to explore: HTML, CSS, and JavaScript.</p>
-          </div>
-          <img
-            src="assets/img/weasel.png"
-            alt="WeaselCode mascot"
-            style="
-              width: 360px;
-              max-width: 40%;
-              height: auto;
-              opacity: 0.9;
-              border-radius: 12px;
-            "
-          />
-        </div>
-
-        <!-- tab buttons - visible but not functional yet, JS comes next commit -->
+<div class="hero" style="display: flex; align-items: center; justify-content: space-between; gap: 32px; max-width: 900px; margin: 0 auto;">
+  <div style="flex: 1; min-width: 0;">
+    <p class="hero-label">// The way of the weasel</p>
+    <h1>Web Development</h1>
+    <p>
+      You've been surfing the web your whole life.<br>
+      Time to dive and see what's underneath the waves..!<br> <br>
+    </p>
+    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px;">
+      
+    </p>
+  </div>
+  <img
+    src="assets/img/weasel.png"
+    alt="WeaselCodes mascot"
+    style="width: 360px; max-width: 40%; height: auto; opacity: 0.9; border-radius: 12px;"
+  />
+</div>
+        <!-- ===== TAB BUTTONS ===== -->
         <div class="tab-buttons">
-          <button class="tab-btn active" id="btn-html">
+          <!-- HTML Button -->
+          <button
+            class="tab-btn active"
+            id="btn-html"
+            onclick="showTab('html')"
+            aria-controls="panel-html"
+            aria-selected="true"
+          >
             <span class="tab-icon">&lt;/&gt;</span>
             <span class="tab-label">HTML</span>
             <span class="tab-sub">The Structure</span>
           </button>
-          <button class="tab-btn" id="btn-css">
+
+          <!-- CSS Button -->
+          <button
+            class="tab-btn"
+            id="btn-css"
+            onclick="showTab('css')"
+            aria-controls="panel-css"
+            aria-selected="false"
+          >
             <span class="tab-icon">#</span>
             <span class="tab-label">CSS</span>
             <span class="tab-sub">The Style</span>
           </button>
-          <button class="tab-btn" id="btn-js">
+
+          <!-- JavaScript Button -->
+          <button
+            class="tab-btn"
+            id="btn-js"
+            onclick="showTab('js')"
+            aria-controls="panel-js"
+            aria-selected="false"
+          >
             <span class="tab-icon">JS</span>
             <span class="tab-label">JavaScript</span>
             <span class="tab-sub">The Behaviour</span>
           </button>
         </div>
+        <!-- end .tab-buttons -->
 
-        <!-- HTML panel (shown by default with active class) -->
+        <!-- ===== TAB PANELS ===== -->
+
+        <!-- HTML Panel -->
         <div class="tab-panel active" id="panel-html" role="tabpanel">
           <div class="card mb-4">
             <h2>What is HTML?</h2>
             <p>
-              HTML (HyperText Markup Language) is the skeleton of the web. No
-              muscles, no skin! Just bare bones telling the browser what goes
-              where. Before CSS makes it pretty and JavaScript makes it dance,
-              HTML is there doing the unglamorous work of holding everything
-              together. HTML uses <em>elements</em> to describe the structure
-              and meaning of content.
+              Back when the world was a safer place for us Weasels, the web was a simple place. 
+              Before CSS makes it pretty and JavaScript makes it dance, the early web was just HTML and vibes, man!
+              The web was just a collection of documents linked together. It was ugly, it was chaotic, it was raw. It was the wild west of the internet, and we loved it.
+              Yahoo looked like a spreadsheet, GeoCities looked like a ransom note, and nobody cared because it was all magic nonetheless.
+                                
+              <br> <br>HTML uses <em>elements</em> to describe the structure and meaning of content. The browser reads your HTML and renders it as a visual page. <br>
+             <br> Cool, right..!? Ready to dive in? <br> <br>
+
+              
             </p>
           </div>
 
           <div class="card mb-4">
             <h3>Basic HTML structure</h3>
             <p>
-              Every HTML file starts with <code>&lt;!DOCTYPE html&gt;</code> — a
-              one-liner that tells the browser to use modern HTML5 rules. It's
-              like a letter. The <code>&lt;head&gt;</code> is the envelope;
-              nobody reads it but it tells the post office what to do. The
-              <code>&lt;body&gt;</code>
-              is the letter itself.
+              Every HTML file starts with <code>&lt;!DOCTYPE html&gt;</code> a one-liner
+              that tells the browser to use modern HTML5 rules.<br>
+              It's like a letter. The <code>&lt;head&gt;</code> is the envelope; nobody
+              reads it but it tells the post office what to do. The <code>&lt;body&gt;</code>
+              is the letter itself. That's where all the show goes on!
             </p>
             <pre><code><span class="cmt">&lt;!-- A minimal HTML5 document --&gt;</span>
 <span class="tag">&lt;!DOCTYPE html&gt;</span>
@@ -121,8 +136,8 @@
           <div class="card mb-4">
             <h3>Common HTML elements</h3>
             <p>
-              HTML has over 100 elements, but you will use a small set most of
-              the time:
+              HTML has over 100 elements, but you will use a small set of them
+              most of the time. Here are the most important ones:
             </p>
             <pre><code><span class="cmt">&lt;!-- Headings: h1 is largest, h6 is smallest --&gt;</span>
 <span class="tag">&lt;h1&gt;</span>Main heading<span class="tag">&lt;/h1&gt;</span>
@@ -131,10 +146,10 @@
 <span class="cmt">&lt;!-- Paragraph --&gt;</span>
 <span class="tag">&lt;p&gt;</span>This is a paragraph of text.<span class="tag">&lt;/p&gt;</span>
 
-<span class="cmt">&lt;!-- Hyperlink --&gt;</span>
+<span class="cmt">&lt;!-- Hyperlink: href sets the destination --&gt;</span>
 <span class="tag">&lt;a</span> <span class="atr">href</span>=<span class="val">"quiz.html"</span><span class="tag">&gt;</span>Go to quiz<span class="tag">&lt;/a&gt;</span>
 
-<span class="cmt">&lt;!-- Image --&gt;</span>
+<span class="cmt">&lt;!-- Image: src is the file path, alt is for screen readers --&gt;</span>
 <span class="tag">&lt;img</span> <span class="atr">src</span>=<span class="val">"assets/img/photo.jpg"</span> <span class="atr">alt</span>=<span class="val">"My photo"</span> <span class="tag">/&gt;</span>
 
 <span class="cmt">&lt;!-- Unordered list --&gt;</span>
@@ -149,7 +164,8 @@
             <p>
               Semantic elements describe the <em>purpose</em> of the content,
               not just how it looks. This helps search engines and screen
-              readers understand your page.
+              readers understand your page. Use these instead of generic
+              <code>&lt;div&gt;</code> elements wherever possible.
             </p>
             <pre><code><span class="tag">&lt;header&gt;</span>  <span class="cmt">&lt;!-- top of the page --&gt;</span>
 <span class="tag">&lt;nav&gt;</span>     <span class="cmt">&lt;!-- navigation links --&gt;</span>
@@ -161,7 +177,7 @@
         </div>
         <!-- end #panel-html -->
 
-        <!-- CSS panel -->
+        <!-- CSS Panel -->
         <div class="tab-panel" id="panel-css" role="tabpanel">
           <div class="card mb-4">
             <h2>What is CSS?</h2>
@@ -170,10 +186,20 @@
               While HTML defines the structure of a page, CSS defines its
               appearance — colours, fonts, spacing, and layout.
             </p>
+            <p>
+              A CSS rule has two parts: a <em>selector</em> that targets an HTML
+              element, and a block of <em>declarations</em> that set
+              property/value pairs.
+            </p>
           </div>
 
           <div class="card mb-4">
             <h3>CSS syntax</h3>
+            <p>
+              Every CSS rule follows the same pattern. The selector says
+              <em>what</em> to style; the declarations say <em>how</em> to style
+              it.
+            </p>
             <pre><code><span class="cmt">/* selector { property: value; } */</span>
 
 <span class="sel">h1</span> {
@@ -191,37 +217,57 @@
 
           <div class="card mb-4">
             <h3>Selectors</h3>
-            <pre><code><span class="cmt">/* Element selector */</span>
-<span class="sel">p</span> { <span class="prop">color</span>: <span class="val">white</span>; }
+            <p>
+              CSS selectors let you target elements in different ways. The three
+              most common are element selectors, class selectors, and ID
+              selectors.
+            </p>
+            <pre><code><span class="cmt">/* Element selector — targets ALL paragraphs */</span>
+<span class="sel">p</span> {
+  <span class="prop">color</span>: <span class="val">white</span>;
+}
 
-<span class="cmt">/* Class selector */</span>
-<span class="sel">.highlight</span> { <span class="prop">background-color</span>: <span class="val">yellow</span>; }
+<span class="cmt">/* Class selector — targets elements with class="highlight" */</span>
+<span class="sel">.highlight</span> {
+  <span class="prop">background-color</span>: <span class="val">yellow</span>;
+}
 
-<span class="cmt">/* ID selector */</span>
-<span class="sel">#logo</span> { <span class="prop">width</span>: <span class="val">120px</span>; }
+<span class="cmt">/* ID selector — targets the element with id="logo" */</span>
+<span class="sel">#logo</span> {
+  <span class="prop">width</span>: <span class="val">120px</span>;
+}
 
-<span class="cmt">/* Descendant selector */</span>
-<span class="sel">nav a</span> { <span class="prop">text-decoration</span>: <span class="val">none</span>; }</code></pre>
+<span class="cmt">/* Descendant selector — targets &lt;a&gt; inside &lt;nav&gt; only */</span>
+<span class="sel">nav a</span> {
+  <span class="prop">text-decoration</span>: <span class="val">none</span>;
+}</code></pre>
           </div>
 
           <div class="card mb-4">
             <h3>The box model</h3>
             <p>
-              Every HTML element is a rectangular box with content, padding,
-              border, and margin.
+              Every HTML element is a rectangular box. The CSS box model
+              describes the layers of that box from the inside out: content,
+              padding, border, and margin. Understanding this is essential for
+              controlling layout and spacing.
             </p>
             <pre><code><span class="sel">.box</span> {
-  <span class="prop">width</span>: <span class="val">300px</span>;
-  <span class="prop">padding</span>: <span class="val">16px</span>;
-  <span class="prop">border</span>: <span class="val">2px solid #00BFFF</span>;
-  <span class="prop">margin</span>: <span class="val">24px</span>;
+  <span class="prop">width</span>: <span class="val">300px</span>;       <span class="cmt">/* content width */</span>
+  <span class="prop">padding</span>: <span class="val">16px</span>;     <span class="cmt">/* space inside the border */</span>
+  <span class="prop">border</span>: <span class="val">2px solid #00BFFF</span>; <span class="cmt">/* visible border */</span>
+  <span class="prop">margin</span>: <span class="val">24px</span>;      <span class="cmt">/* space outside the border */</span>
 }</code></pre>
           </div>
 
           <div class="card mb-4">
             <h3>Responsive design with Bootstrap</h3>
-            <p>Bootstrap provides a 12-column grid system.</p>
-            <pre><code><span class="tag">&lt;div</span> <span class="atr">class</span>=<span class="val">"row"</span><span class="tag">&gt;</span>
+            <p>
+              Bootstrap is a CSS framework that provides a grid system and
+              ready-made components. It uses 12 columns, and you control how
+              many columns an element spans at each screen size.
+            </p>
+            <pre><code><span class="cmt">&lt;!-- Two columns side by side on medium+ screens --&gt;</span>
+<span class="tag">&lt;div</span> <span class="atr">class</span>=<span class="val">"row"</span><span class="tag">&gt;</span>
   <span class="tag">&lt;div</span> <span class="atr">class</span>=<span class="val">"col-md-6"</span><span class="tag">&gt;</span>Left column<span class="tag">&lt;/div&gt;</span>
   <span class="tag">&lt;div</span> <span class="atr">class</span>=<span class="val">"col-md-6"</span><span class="tag">&gt;</span>Right column<span class="tag">&lt;/div&gt;</span>
 <span class="tag">&lt;/div&gt;</span></code></pre>
@@ -229,28 +275,40 @@
         </div>
         <!-- end #panel-css -->
 
-        <!-- JS panel -->
+        <!-- JavaScript Panel -->
         <div class="tab-panel" id="panel-js" role="tabpanel">
           <div class="card mb-4">
             <h2>What is JavaScript?</h2>
             <p>
               JavaScript (JS) is a programming language that runs in the
               browser. While HTML provides structure and CSS provides style,
-              JavaScript adds
-              <em>behaviour</em> — responding to user actions, updating content
-              dynamically, and communicating with servers.
+              JavaScript adds <em>behaviour</em> — responding to user actions,
+              updating content dynamically, and communicating with servers.
+            </p>
+            <p>
+              JavaScript can read and modify the HTML and CSS of a page at any
+              time. This is called manipulating the
+              <strong>DOM</strong> (Document Object Model).
             </p>
           </div>
 
           <div class="card mb-4">
             <h3>Variables and data types</h3>
+            <p>
+              Variables store values. Use <code>const</code> for values that
+              won't change, and <code>let</code> for values that will.
+              JavaScript has several data types: strings, numbers, booleans,
+              arrays, and objects.
+            </p>
             <pre><code><span class="cmt">// Declaring variables</span>
-<span class="kw">const</span> siteName = <span class="str">"WeaselCode"</span>;  <span class="cmt">// string</span>
-<span class="kw">let</span> score = <span class="num">0</span>;                  <span class="cmt">// number</span>
+<span class="kw">const</span> siteName = <span class="str">"WeaselCodes"</span>;  <span class="cmt">// string — won't change</span>
+<span class="kw">let</span> score = <span class="num">0</span>;                  <span class="cmt">// number — will change</span>
 <span class="kw">let</span> passed = <span class="kw">false</span>;             <span class="cmt">// boolean</span>
 
+<span class="cmt">// Array — a list of values</span>
 <span class="kw">const</span> topics = [<span class="str">"HTML"</span>, <span class="str">"CSS"</span>, <span class="str">"JavaScript"</span>];
 
+<span class="cmt">// Object — key/value pairs</span>
 <span class="kw">const</span> user = {
   name: <span class="str">"Alex"</span>,
   score: <span class="num">8</span>,
@@ -260,36 +318,75 @@
 
           <div class="card mb-4">
             <h3>Functions</h3>
-            <pre><code><span class="kw">function</span> greet(name) {
+            <p>
+              Functions are reusable blocks of code. You define a function once
+              and can call it as many times as you need. Functions can accept
+              <em>parameters</em> (inputs) and <em>return</em> a value (output).
+            </p>
+            <pre><code><span class="cmt">// Function declaration</span>
+<span class="kw">function</span> greet(name) {
   <span class="kw">return</span> <span class="str">"Hello, "</span> + name + <span class="str">"!"</span>;
 }
 
+<span class="cmt">// Calling the function</span>
 <span class="kw">const</span> message = greet(<span class="str">"Alex"</span>);
-console.log(message); <span class="cmt">// "Hello, Alex!"</span></code></pre>
+console.log(message); <span class="cmt">// "Hello, Alex!"</span>
+
+<span class="cmt">// Arrow function (shorter syntax, same result)</span>
+<span class="kw">const</span> greet2 = (name) =&gt; <span class="str">"Hello, "</span> + name + <span class="str">"!"</span>;</code></pre>
           </div>
 
           <div class="card mb-4">
             <h3>DOM manipulation</h3>
-            <pre><code><span class="kw">const</span> heading = document.getElementById(<span class="str">"main-title"</span>);
+            <p>
+              The DOM is JavaScript's view of the HTML page. You can use
+              <code>document.getElementById()</code> to find an element, then
+              read or change its content, style, or attributes.
+            </p>
+            <pre><code><span class="cmt">// Find an element by its id</span>
+<span class="kw">const</span> heading = document.getElementById(<span class="str">"main-title"</span>);
+
+<span class="cmt">// Change its text content</span>
 heading.textContent = <span class="str">"New title!"</span>;
-heading.style.color = <span class="str">"#00BFFF"</span>;</code></pre>
+
+<span class="cmt">// Change its style</span>
+heading.style.color = <span class="str">"#00BFFF"</span>;
+
+<span class="cmt">// Find elements by class name</span>
+<span class="kw">const</span> cards = document.querySelectorAll(<span class="str">".card"</span>);</code></pre>
           </div>
 
           <div class="card mb-4">
             <h3>Events</h3>
-            <pre><code><span class="kw">const</span> btn = document.getElementById(<span class="str">"my-btn"</span>);
+            <p>
+              Events let your code respond to user actions like clicks, key
+              presses, and form submissions. You attach an
+              <em>event listener</em> to an element and provide a function to
+              run when the event fires.
+            </p>
+            <pre><code><span class="cmt">// Find the button</span>
+<span class="kw">const</span> btn = document.getElementById(<span class="str">"my-btn"</span>);
 
+<span class="cmt">// Listen for a click event</span>
 btn.addEventListener(<span class="str">"click"</span>, <span class="kw">function</span>() {
+  alert(<span class="str">"Button was clicked!"</span>);
+});
+
+<span class="cmt">// Arrow function version</span>
+btn.addEventListener(<span class="str">"click"</span>, () =&gt; {
   alert(<span class="str">"Button was clicked!"</span>);
 });</code></pre>
           </div>
         </div>
         <!-- end #panel-js -->
 
-        <!-- quiz cta -->
+        <!-- ===== QUIZ CTA ===== -->
         <div class="quiz-cta">
           <h2>Ready to test yourself?</h2>
-          <p>You've covered HTML, CSS, and JavaScript. Now take the quiz.</p>
+          <p>
+            You've covered HTML, CSS, and JavaScript. Now put your knowledge to
+            the test with the WeaselCodes quiz.
+          </p>
           <a href="quiz.html" class="btn btn-primary">Take the quiz &rarr;</a>
         </div>
       </div>
@@ -297,14 +394,46 @@ btn.addEventListener(<span class="str">"click"</span>, <span class="kw">function
     </div>
     <!-- end .page-wrapper -->
 
-    <!-- footer -->
+    <!-- ===================== FOOTER ===================== -->
     <footer class="footer">
       <div class="container">
-        <p>&copy; 2025 WeaselCode &mdash; CITS5505 Individual Project</p>
+        <p>&copy; 2026 WeaselCodes</p>
       </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- ===================== SCRIPTS ===================== -->
+    <!-- Bootstrap JS from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Tab switching logic -->
+    <script>
+      /**
+       * showTab - hides all tab panels and buttons, then shows
+       * the one matching the given topic name.
+       *
+       * @param {string} topic - one of 'html', 'css', or 'js'
+       */
+      function showTab(topic) {
+        /* 1. Get all tab buttons and panels */
+        const buttons = document.querySelectorAll(".tab-btn");
+        const panels = document.querySelectorAll(".tab-panel");
+
+        /* 2. Remove 'active' from every button and panel */
+        buttons.forEach(function (btn) {
+          btn.classList.remove("active");
+          btn.setAttribute("aria-selected", "false");
+        });
+        panels.forEach(function (panel) {
+          panel.classList.remove("active");
+        });
+
+        /* 3. Add 'active' to the selected button and panel */
+        document.getElementById("btn-" + topic).classList.add("active");
+        document
+          .getElementById("btn-" + topic)
+          .setAttribute("aria-selected", "true");
+        document.getElementById("panel-" + topic).classList.add("active");
+      }
+    </script>
   </body>
 </html>

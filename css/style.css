@@ -253,18 +253,19 @@ pre code {
 /* ---------- Tab System (Tutorial page) ---------- */
 .tab-buttons {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   margin-bottom: 32px;
   flex-wrap: wrap;
 }
 
 .tab-btn {
+    border: 1px solid var(--bg-primary);
   flex: 1;
   min-width: 140px;
   padding: 20px 16px;
   background: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   color: var(--text-secondary);
   font-family: var(--font-heading);
   font-size: 1rem;
@@ -272,6 +273,7 @@ pre code {
   cursor: pointer;
   transition: all var(--transition);
   text-align: center;
+  outline: none;
 }
 
 .tab-btn:hover {
