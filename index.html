@@ -22,7 +22,7 @@
         <ul class="nav-links">
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="quiz.html">Quiz</a></li>
-          <li><a href="reflection.html">AI Reflection</a></li>
+          <li><a href="reflection.html">Reflection</a></li>
           <li><a href="cv.html">About Me</a></li>
         </ul>
       </div>
@@ -30,24 +30,37 @@
 
     <!-- ===================== PAGE CONTENT ===================== -->
     <div class="page-wrapper">
-<div class="hero" style="display: flex; align-items: center; justify-content: space-between; gap: 32px; max-width: 900px; margin: 0 auto;">
-  <div style="flex: 1; min-width: 0;">
-    <p class="hero-label">// The way of the weasel</p>
-    <h1>Web Development</h1>
-    <p>
-      You've been surfing the web your whole life.<br>
-      Time to dive and see what's underneath the waves..!<br> <br>
-    </p>
-    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px;">
-      
-    </p>
-  </div>
-  <img
-    src="assets/img/weasel.png"
-    alt="WeaselCodes mascot"
-    style="width: 360px; max-width: 40%; height: auto; opacity: 0.9; border-radius: 12px;"
-  />
-</div>
+      <div class="container">
+        <!-- Hero -->
+        <div
+          class="hero"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+          "
+        >
+          <div style="flex: 1; min-width: 0">
+            <p class="hero-label">// The way of the weasel</p>
+            <h1>Web Development</h1>
+            <p>
+              You've been surfing the web your whole life.<br />
+              Time to dive and see what's underneath the waves..!
+            </p>
+          </div>
+          <img
+            src="assets/img/weasel.png"
+            alt="WeaselCodes mascot"
+            style="
+              width: 360px;
+              max-width: 40%;
+              height: auto;
+              opacity: 0.9;
+              border-radius: 12px;
+            "
+          />
+        </div>
         <!-- ===== TAB BUTTONS ===== -->
         <div class="tab-buttons">
           <!-- HTML Button -->
@@ -98,25 +111,33 @@
           <div class="card mb-4">
             <h2>What is HTML?</h2>
             <p>
-              Back when the world was a safer place for us Weasels, the web was a simple place. 
-              Before CSS makes it pretty and JavaScript makes it dance, the early web was just HTML and vibes, man!
-              The web was just a collection of documents linked together. It was ugly, it was chaotic, it was raw. It was the wild west of the internet, and we loved it.
-              Yahoo looked like a spreadsheet, GeoCities looked like a ransom note, and nobody cared because it was all magic nonetheless.
-                                
-              <br> <br>HTML (HyperText Markup Language) uses <em>elements</em> to describe the structure and meaning of content. The browser reads your HTML and renders it as a visual page. <br>
-             <br> Cool, right..!? Ready to dive in? <br> <br>
+              Back when the world was a safer place for us Weasels, the web was
+              a much simpler place. Before CSS makes it pretty and JavaScript
+              makes it dance, the early web was just HTML and vibes, man! It was
+              but a collection of documents linked together. Yes it was ugly,
+              yes it was chaotic, yes it was raw. It was the wild west of the
+              internet, and we loved it. Yahoo looked like a spreadsheet,
+              GeoCities looked like a ransom note, and nobody cared because it
+              was all magic nonetheless.
 
-              
+              <br />
+              <br />HTML (HyperText Markup Language) uses <em>elements</em> to
+              describe the structure and meaning of content. The browser reads
+              your HTML and renders it as a visual page. <br />
+              <br />
+              Cool, right..!? Ready to dive in? <br />
+              <br />
             </p>
           </div>
 
           <div class="card mb-4">
             <h3>Basic HTML structure</h3>
             <p>
-              Every HTML file starts with <code>&lt;!DOCTYPE html&gt;</code> a one-liner
-              that tells the browser to use modern HTML5 rules.<br>
-              It's like a letter. The <code>&lt;head&gt;</code> is the envelope; nobody
-              reads it but it tells the post office what to do. The <code>&lt;body&gt;</code>
+              Every HTML file starts with <code>&lt;!DOCTYPE html&gt;</code> a
+              one-liner that tells the browser to use modern HTML5 rules.<br />
+              It's like a letter. The <code>&lt;head&gt;</code> is the envelope;
+              nobody reads it but it tells the post office what to do. The
+              <code>&lt;body&gt;</code>
               is the letter itself. That's where all the show goes on!
             </p>
             <pre><code><span class="cmt">&lt;!-- A minimal HTML5 document --&gt;</span>
@@ -174,27 +195,47 @@
 <span class="tag">&lt;article&gt;</span> <span class="cmt">&lt;!-- self-contained content --&gt;</span>
 <span class="tag">&lt;footer&gt;</span>  <span class="cmt">&lt;!-- bottom of the page --&gt;</span></code></pre>
           </div>
-                  <!-- ===== VIDEO SECTION ===== -->
-<div class="card mb-4">
-  <h3>See it in action</h3>
-  <p style="color: var(--text-secondary); margin-bottom: 16px;">
-    Watch this awesome video to get a feel for how HTML rock the web..!
-  </p>
-  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
-    <iframe
-      src="https://www.youtube.com/embed/HD13eq_Pmp8"
-      title="HTML introduction"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px;"
-    ></iframe>
+          <!-- ===== VIDEO SECTION ===== -->
+          <div class="card mb-4">
+            <h3>See it in action</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 16px">
+              Watch this awesome video to get a feel for how HTML rock the
+              web..!
+            </p>
+            <div
+              style="
+                position: relative;
+                padding-bottom: 56.25%;
+                height: 0;
+                overflow: hidden;
+                border-radius: 8px;
+              "
+            >
+              <iframe
+                src="https://www.youtube.com/embed/HD13eq_Pmp8"
+                title="HTML introduction"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
+                style="
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 8px;
+                "
+              ></iframe>
+            </div>
+          </div>
         </div>
-
-    
-  </div>
-  
-</div>
         <!-- end #panel-html -->
 
         <!-- CSS Panel -->
@@ -202,15 +243,15 @@
           <div class="card mb-4">
             <h2>What is CSS?</h2>
             <p>
-             CSS is the reason some websites look stunning while others look like they were designed in 2001 by someone's dad.
-
-              CSS (Cascading Style Sheets) controls how HTML elements look.
-              HTML built the house. 
-              Now CSS decides whether it looks like a mansion or a disaster. 
-              Colour, fonts, spacing, layout.
-
-              HTML gets all the credit. JavaScript gets all the glamour. CSS just quietly makes everything beautiful. 
-              Today is the day we give CSS the respect it deserves. Let's dive into the world of selectors, properties, and the box model to see how CSS turns plain HTML into a work of art.
+              CSS is the reason some websites look stunning while others look
+              like they were designed in 2001 by someone's dad. CSS (Cascading
+              Style Sheets) controls how HTML elements look. HTML built the
+              house. Now CSS decides whether it looks like a mansion or a
+              disaster. Colour, fonts, spacing, layout. HTML gets all the
+              credit. JavaScript gets all the glamour. CSS just quietly makes
+              everything beautiful. Today is the day we give CSS the respect it
+              deserves. Let's dive into the world of selectors, properties, and
+              the box model to see how CSS turns plain HTML into a work of art.
             </p>
           </div>
 
@@ -293,25 +334,46 @@
   <span class="tag">&lt;div</span> <span class="atr">class</span>=<span class="val">"col-md-6"</span><span class="tag">&gt;</span>Right column<span class="tag">&lt;/div&gt;</span>
 <span class="tag">&lt;/div&gt;</span></code></pre>
           </div>
-                            <!-- ===== VIDEO SECTION ===== -->
-<div class="card mb-4">
-  <h3>See it in action</h3>
-  <p style="color: var(--text-secondary); margin-bottom: 16px;">
-    Watch this awesome video to see how CSS transforms a plain HTML page into a stunning website..!
-  </p>
-  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
-    <iframe
-      src="https://www.youtube.com/embed/wRNinF7YQqQ"
-      title="CSS introduction"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px;"
-    ></iframe>
-        </div>
-
-    
-  </div>
+          <!-- ===== VIDEO SECTION ===== -->
+          <div class="card mb-4">
+            <h3>See it in action</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 16px">
+              Watch this awesome video to see how CSS transforms a plain HTML
+              page into a stunning website..!
+            </p>
+            <div
+              style="
+                position: relative;
+                padding-bottom: 56.25%;
+                height: 0;
+                overflow: hidden;
+                border-radius: 8px;
+              "
+            >
+              <iframe
+                src="https://www.youtube.com/embed/wRNinF7YQqQ"
+                title="CSS introduction"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
+                style="
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 8px;
+                "
+              ></iframe>
+            </div>
+          </div>
         </div>
         <!-- end #panel-css -->
 
@@ -320,17 +382,19 @@
           <div class="card mb-4">
             <h2>What is JavaScript?</h2>
             <p>
-            God created the universe in 7 days. JavaScript was created by Brendan Eich in 10 days. One of these things has fewer bugs.
-            <br><br>
+              God created the universe in 7 days. JavaScript was created by
+              Brendan Eich in 10 days. One of these things has fewer bugs.
+              <br /><br />
 
-             JavaScript is the programming language that runs in the
-              browser. It adds <em>behaviour</em> — responding to user actions,
-              updating content dynamically, and communicating with servers.
+              JavaScript is the programming language that runs in the browser.
+              It adds <em>behaviour</em> — responding to user actions, updating
+              content dynamically, and communicating with servers.
             </p>
             <p>
-                Fair warning: JavaScript will frustrate you, confuse you, and occasionally make you question your life choices. 
-                It will also make you feel like a wizard the first time you write code that actually does something. 
-                Worth it. Trust the weasel."
+              Fair warning: JavaScript will frustrate you, confuse you, and
+              occasionally make you question your life choices. It will also
+              make you feel like a wizard the first time you write code that
+              actually does something. Worth it. Trust the weasel."
             </p>
           </div>
 
@@ -420,23 +484,44 @@ btn.addEventListener(<span class="str">"click"</span>, () =&gt; {
 });</code></pre>
           </div>
           <div class="card mb-4">
-  <h3>See it in action</h3>
-  <p style="color: var(--text-secondary); margin-bottom: 16px;">
-    Watch this video to so you can make a cool interactive website using JavaScript..!
-  </p>
-  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
-    <iframe
-      src="https://www.youtube.com/embed/Ihy0QziLDf0"
-      title=""HTML CSS "JavaScript introduction"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px;"
-    ></iframe>
-        </div>
-
-    
-  </div>
+            <h3>See it in action</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 16px">
+              Watch this video to so you can make a cool interactive website
+              using JavaScript..!
+            </p>
+            <div
+              style="
+                position: relative;
+                padding-bottom: 56.25%;
+                height: 0;
+                overflow: hidden;
+                border-radius: 8px;
+              "
+            >
+              <iframe
+                src="https://www.youtube.com/embed/Ihy0QziLDf0"
+                title="JavaScript introduction"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
+                allowfullscreen
+                style="
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 8px;
+                "
+              ></iframe>
+            </div>
+          </div>
         </div>
         <!-- end #panel-js -->
 
@@ -444,10 +529,11 @@ btn.addEventListener(<span class="str">"click"</span>, () =&gt; {
         <div class="quiz-cta">
           <h2>Ready to test yourself?</h2>
           <p>
-            I have shown you the door. 
-            Only you can choose to walk through it. <br>
-            The quiz awaits. Take it. <br>
-            For it is the only way to truly know if you have what it takes to be a master weasel coder.
+            I have shown you the door. Only you can choose to walk through it.
+            <br />
+            The quiz awaits. Take it. <br />
+            For it is the only way to truly know if you have what it takes to be
+            a master weasel coder.
           </p>
           <a href="quiz.html" class="btn btn-primary">Take the quiz &rarr;</a>
         </div>
