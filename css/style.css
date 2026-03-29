@@ -1,1 +1,396 @@
-/* ===========================================================*/
+/* ---------- CSS Custom Properties (Design Tokens) ---------- */
+:root {
+  --bg-primary:    #0a0e1a;   /* darkest background */
+  --bg-secondary:  #111827;   /* card / panel background */
+  --bg-tertiary:   #1a2235;   /* subtle surface */
+  --accent:        #00BFFF;   /* cyan accent */
+  --accent-dim:    #0099cc;   /* darker cyan for hover states */
+  --accent-glow:   rgba(0, 191, 255, 0.15); /* glow effect */
+  --text-primary:  #e8eaf0;   /* main text */
+  --text-secondary:#8b95a8;   /* muted text */
+  --text-heading:  #ffffff;   /* headings */
+  --border:        #1e2d45;   /* subtle border */
+  --border-accent: #00BFFF;   /* accent border */
+  --code-bg:       #0d1525;   /* code block background */
+  --success:       #22c55e;
+  --warning:       #f59e0b;
+  --danger:        #ef4444;
+  --font-heading:  'Courier New', 'Lucida Console', monospace;
+  --font-body:     Georgia, 'Times New Roman', serif;
+  --font-mono:     'Courier New', Courier, monospace;
+  --radius-sm:     4px;
+  --radius-md:     8px;
+  --radius-lg:     12px;
+  --transition:    0.2s ease;
+  --nav-height:    64px;
+}
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--text-heading);
+  line-height: 1.3;
+}
+
+h1 { font-size: 2rem; margin-bottom: 0.75rem; }
+h2 { font-size: 1.5rem; margin-bottom: 0.6rem; }
+h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--accent-dim);
+  text-decoration: underline;
+}
+
+/* ---------- Layout Containers ---------- */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.page-wrapper {
+  padding-top: var(--nav-height);
+  min-height: 100vh;
+}
+
+.section {
+  padding: 48px 0;
+}
+
+/* ---------- Navigation Bar ---------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  background-color: rgba(10, 14, 26, 0.95);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+
+.nav-logo {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  margin-right: auto;
+}
+
+.nav-logo:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.nav-logo span {
+  color: var(--text-heading);
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition);
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: var(--text-heading);
+  background: var(--bg-tertiary);
+  text-decoration: none;
+}
+
+.nav-links a.active {
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  padding: 10px 24px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #0a0e1a;
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  background: var(--accent-dim);
+  border-color: var(--accent-dim);
+  color: #0a0e1a;
+  text-decoration: none;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-outline:hover {
+  background: var(--accent-glow);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.card-accent {
+  border-color: var(--accent);
+}
+
+/* ---------- Code Blocks ---------- */
+pre, code {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+}
+
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  overflow-x: auto;
+  margin: 1rem 0;
+  line-height: 1.6;
+  color: #c9d1d9;
+}
+
+code {
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Syntax highlight colours (applied via spans in HTML) */
+.kw  { color: #ff79c6; } /* keywords: function, const, let  */
+.str { color: #f1fa8c; } /* strings */
+.num { color: #bd93f9; } /* numbers */
+.cmt { color: #6272a4; } /* comments */
+.tag { color: #ff79c6; } /* HTML tags */
+.atr { color: #50fa7b; } /* HTML attributes */
+.val { color: #f1fa8c; } /* attribute values */
+.sel { color: #50fa7b; } /* CSS selectors */
+.prop{ color: #8be9fd; } /* CSS properties */
+
+/* ---------- Tab System (Tutorial page) ---------- */
+.tab-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  flex: 1;
+  min-width: 140px;
+  padding: 20px 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: center;
+}
+
+.tab-btn:hover {
+  border-color: var(--accent);
+  color: var(--text-heading);
+  background: var(--bg-tertiary);
+}
+
+.tab-btn.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.tab-btn .tab-icon {
+  display: block;
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.tab-btn .tab-label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.tab-btn .tab-sub {
+  display: block;
+  font-size: 0.75rem;
+  margin-top: 4px;
+  opacity: 0.7;
+}
+
+/* Tab content panels */
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* ---------- Page Hero ---------- */
+.hero {
+  padding: 56px 0 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+
+.hero-label {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  color: var(--text-heading);
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+}
+
+/* ---------- Quiz CTA (bottom of tutorial) ---------- */
+.quiz-cta {
+  margin-top: 56px;
+  padding: 36px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.quiz-cta h2 {
+  color: var(--text-heading);
+  margin-bottom: 8px;
+}
+
+.quiz-cta p {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+  text-align: center;
+  color: var(--text-secondary);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Utility Classes ---------- */
+.text-accent   { color: var(--accent); }
+.text-muted    { color: var(--text-secondary); }
+.text-center   { text-align: center; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.8rem; }
+  .tab-buttons { flex-direction: column; }
+  .tab-btn { min-width: unset; }
+  .navbar .container { gap: 16px; }
+  .nav-links a { font-size: 0.78rem; padding: 6px 8px; }
+}
