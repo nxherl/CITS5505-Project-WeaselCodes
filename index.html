@@ -130,14 +130,29 @@
               makes it dance, the early web was just HTML and vibes, man! It was
               but a collection of documents linked together. Yes it was ugly,
               yes it was chaotic, yes it was raw. It was the wild west of the
-              internet, and we loved it. Yahoo looked like a spreadsheet,
-              GeoCities looked like a ransom note, and nobody cared because it
-              was all magic nonetheless.
+              internet, and we loved it.<br />
+              <img
+                src="assets/img/geocities.jpg"
+                alt="old web screenshot"
+                style="
+                  width: 100%;
+                  max-width: 400px;
+                  margin: 16px 0;
+                  border-radius: 8px;
+                "
+              />
+              <br />
+              Yahoo looked like a spreadsheet, GeoCities looked like a ransom
+              note, and nobody cared because it was all magic nonetheless.
 
               <br />
               <br />HTML (HyperText Markup Language) uses <em>elements</em> to
               describe the structure and meaning of content. The browser reads
-              your HTML and renders it as a visual page. <br />
+              your HTML and renders it as a visual page. We are talking about
+              the main building block, the skeleton, of the web page here. Don't
+              worry if it looks simple now.. you'll be building amazing things
+              in no time!
+              <br />
               <br />
               Cool, right..!? Ready to dive in? <br />
               <br />
@@ -257,15 +272,160 @@
           <div class="card mb-4">
             <h2>What is CSS?</h2>
             <p>
-              CSS is the reason some websites look stunning while others look
-              like they were designed in 2001 by someone's dad. CSS (Cascading
-              Style Sheets) controls how HTML elements look. HTML built the
+              CSS (Cascading Style Sheets) is the reason some websites look
+              stunning while others look like they were designed in 2001 by
+              someone's dad. CSS controls how HTML elements look. HTML built the
               house. Now CSS decides whether it looks like a mansion or a
-              disaster. Colour, fonts, spacing, layout. HTML gets all the
-              credit. JavaScript gets all the glamour. CSS just quietly makes
-              everything beautiful. Today is the day we give CSS the respect it
-              deserves. Let's dive into the world of selectors, properties, and
-              the box model to see how CSS turns plain HTML into a work of art.
+              disaster. Colour, fonts, spacing, layout. CSS is the paint and
+              brush of the web.
+              <br />
+            </p>
+            <img
+              src="assets/img/htmlcss.jpg"
+              alt="juxtaposition of HTML and CSS represented by cats"
+              style="
+                width: 100%;
+                max-width: 400px;
+                margin: 16px auto;
+                border-radius: 8px;
+                display: block;
+              "
+            />
+            <!-- Live CSS Demo -->
+
+            <h3>Ready to see magic?</h3>
+            <p>
+              This live CSS editor allows you to see the effects of CSS changes
+              in real time.
+              <br />
+              Adjust the background colour, text colour, font size, and border
+              radius using the controls below.
+              <br />
+            </p>
+
+            <!-- Controls -->
+            <div
+              style="display: flex; flex-wrap: wrap; gap: 16px; margin: 16px 0"
+            >
+              <label style="font-size: 0.85rem; color: var(--text-secondary)">
+                Background colour
+                <input
+                  type="color"
+                  id="demo-bg"
+                  value="#1a2235"
+                  style="
+                    display: block;
+                    margin-top: 4px;
+                    width: 48px;
+                    height: 32px;
+                    border: none;
+                    cursor: pointer;
+                    background: none;
+                  "
+                />
+              </label>
+
+              <label style="font-size: 0.85rem; color: var(--text-secondary)">
+                Text colour
+                <input
+                  type="color"
+                  id="demo-color"
+                  value="#00BFFF"
+                  style="
+                    display: block;
+                    margin-top: 4px;
+                    width: 48px;
+                    height: 32px;
+                    border: none;
+                    cursor: pointer;
+                    background: none;
+                  "
+                />
+              </label>
+
+              <label style="font-size: 0.85rem; color: var(--text-secondary)">
+                Font size: <span id="demo-size-label">20px</span>
+                <input
+                  type="range"
+                  id="demo-size"
+                  min="12"
+                  max="48"
+                  value="20"
+                  style="display: block; margin-top: 4px; width: 160px"
+                />
+              </label>
+
+              <label style="font-size: 0.85rem; color: var(--text-secondary)">
+                Border radius: <span id="demo-radius-label">8px</span>
+                <input
+                  type="range"
+                  id="demo-radius"
+                  min="0"
+                  max="50"
+                  value="8"
+                  style="display: block; margin-top: 4px; width: 160px"
+                />
+              </label>
+            </div>
+
+            <!-- The live preview box -->
+            <div
+              id="css-demo-box"
+              style="
+                background: #1a2235;
+                color: #00bfff;
+                font-size: 20px;
+                border-radius: 8px;
+                padding: 32px;
+                text-align: center;
+                border: 2px solid #00bfff;
+                font-family: &quot;Courier New&quot;, monospace;
+                transition: all 0.2s ease;
+              "
+            >
+              One stylesheet to rule them all.
+            </div>
+
+            <!-- JS that powers the demo -->
+            <script>
+              /* Get references to all controls and the demo box */
+              const demoBox = document.getElementById("css-demo-box");
+              const demoBg = document.getElementById("demo-bg");
+              const demoColor = document.getElementById("demo-color");
+              const demoSize = document.getElementById("demo-size");
+              const demoRadius = document.getElementById("demo-radius");
+
+              /* Update background colour when picker changes */
+              demoBg.addEventListener("input", function () {
+                demoBox.style.backgroundColor = this.value;
+              });
+
+              /* Update text colour when picker changes */
+              demoColor.addEventListener("input", function () {
+                demoBox.style.color = this.value;
+                demoBox.style.borderColor = this.value;
+              });
+
+              /* Update font size when slider moves */
+              demoSize.addEventListener("input", function () {
+                demoBox.style.fontSize = this.value + "px";
+                document.getElementById("demo-size-label").textContent =
+                  this.value + "px";
+              });
+
+              /* Update border radius when slider moves */
+              demoRadius.addEventListener("input", function () {
+                demoBox.style.borderRadius = this.value + "px";
+                document.getElementById("demo-radius-label").textContent =
+                  this.value + "px";
+              });
+            </script>
+            <p>
+              <br />
+              <br />
+              Fellas, today is the day we give CSS the respect it deserves.
+              Let's dive into the world of selectors, properties, and the box
+              model to see how CSS turns plain HTML into a work of art.
             </p>
           </div>
 
@@ -389,6 +549,7 @@
             </div>
           </div>
         </div>
+
         <!-- end #panel-css -->
 
         <!-- JavaScript Panel -->
@@ -396,14 +557,25 @@
           <div class="card mb-4">
             <h2>What is JavaScript?</h2>
             <p>
-              God created the universe in 7 days. JavaScript was created by
-              Brendan Eich in 10 days. One of these things has fewer bugs.
+              God created the universe in 7 days. JavaScript was created in 10
+              days. One of these things has fewer bugs.
               <br /><br />
 
               JavaScript is the programming language that runs in the browser.
-              It adds <em>behaviour</em> — responding to user actions, updating
+              It adds <em>behaviour</em>. It responds to user actions, updating
               content dynamically, and communicating with servers.
             </p>
+            <img
+              src="assets/img/javascript.gif"
+              alt="JavaScript example"
+              style="
+                width: 100%;
+                max-width: 300px;
+                margin: 16px auto;
+                border-radius: 8px;
+                display: block;
+              "
+            />
             <p>
               Fair warning: JavaScript will frustrate you, confuse you, and
               occasionally make you question your life choices. It will also
