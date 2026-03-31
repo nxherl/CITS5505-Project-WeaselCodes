@@ -181,6 +181,45 @@
     <span class="tag">&lt;p&gt;</span>This is a paragraph.<span class="tag">&lt;/p&gt;</span>
   <span class="tag">&lt;/body&gt;</span>
 <span class="tag">&lt;/html&gt;</span></code></pre>
+            <p style="margin-top: 16px; color: var(--text-secondary)">
+              See what a basic HTML document looks like in the browser.
+            </p>
+
+            <button
+              onclick="toggleStructureOutput()"
+              id="structure-toggle-btn"
+              class="btn btn-outline"
+              style="margin-top: 8px"
+            >
+              Show rendered output
+            </button>
+
+            <img
+              id="structure-output-img"
+              src="assets/img/htmlbasic.jpg"
+              alt="Rendered HTML structure example"
+              style="
+                display: none;
+                margin-top: 16px;
+                max-width: 100%;
+                border-radius: 8px;
+                border: 1px solid var(--border);
+              "
+            />
+
+            <script>
+              function toggleStructureOutput() {
+                const img = document.getElementById("structure-output-img");
+                const btn = document.getElementById("structure-toggle-btn");
+                if (img.style.display === "none") {
+                  img.style.display = "block";
+                  btn.textContent = "Hide rendered output";
+                } else {
+                  img.style.display = "none";
+                  btn.textContent = "Show rendered output";
+                }
+              }
+            </script>
           </div>
 
           <div class="card mb-4">
@@ -207,6 +246,45 @@
   <span class="tag">&lt;li&gt;</span>First item<span class="tag">&lt;/li&gt;</span>
   <span class="tag">&lt;li&gt;</span>Second item<span class="tag">&lt;/li&gt;</span>
 <span class="tag">&lt;/ul&gt;</span></code></pre>
+            <p style="margin-top: 16px; color: var(--text-secondary)">
+              See what these common elements look like rendered in the browser.
+            </p>
+
+            <button
+              onclick="toggleElementsOutput()"
+              id="elements-toggle-btn"
+              class="btn btn-outline"
+              style="margin-top: 8px"
+            >
+              Show rendered output
+            </button>
+
+            <img
+              id="elements-output-img"
+              src="assets/img/htmlcommon.jpg"
+              alt="Rendered HTML elements example"
+              style="
+                display: none;
+                margin-top: 16px;
+                max-width: 100%;
+                border-radius: 8px;
+                border: 1px solid var(--border);
+              "
+            />
+
+            <script>
+              function toggleElementsOutput() {
+                const img = document.getElementById("elements-output-img");
+                const btn = document.getElementById("elements-toggle-btn");
+                if (img.style.display === "none") {
+                  img.style.display = "block";
+                  btn.textContent = "Hide rendered output";
+                } else {
+                  img.style.display = "none";
+                  btn.textContent = "Show rendered output";
+                }
+              }
+            </script>
           </div>
 
           <div class="card mb-4">
@@ -223,6 +301,156 @@
 <span class="tag">&lt;section&gt;</span> <span class="cmt">&lt;!-- a standalone section --&gt;</span>
 <span class="tag">&lt;article&gt;</span> <span class="cmt">&lt;!-- self-contained content --&gt;</span>
 <span class="tag">&lt;footer&gt;</span>  <span class="cmt">&lt;!-- bottom of the page --&gt;</span></code></pre>
+          </div>
+          <!-- HTML Forms Card -->
+          <div class="card mb-4">
+            <h3>HTML forms</h3>
+            <p>
+              Forms are how the web collects information from users. Every login
+              page, search box, and checkout form you've ever used is an HTML
+              <code>&lt;form&gt;</code> element under the hood. Inside a form,
+              you add <code>&lt;input&gt;</code> elements to create the actual
+              fields.
+            </p>
+            <pre><code><span class="cmt">&lt;!-- A simple login form --&gt;</span>
+<span class="tag">&lt;form</span> <span class="atr">action</span>=<span class="val">"/login"</span> <span class="atr">method</span>=<span class="val">"post"</span><span class="tag">&gt;</span>
+
+  <span class="tag">&lt;label</span> <span class="atr">for</span>=<span class="val">"email"</span><span class="tag">&gt;</span>Email<span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;input</span> <span class="atr">type</span>=<span class="val">"email"</span> <span class="atr">id</span>=<span class="val">"email"</span> <span class="atr">placeholder</span>=<span class="val">"weasel@codes.com"</span> <span class="atr">required</span> <span class="tag">/&gt;</span>
+
+  <span class="tag">&lt;label</span> <span class="atr">for</span>=<span class="val">"password"</span><span class="tag">&gt;</span>Password<span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;input</span> <span class="atr">type</span>=<span class="val">"password"</span> <span class="atr">id</span>=<span class="val">"password"</span> <span class="atr">placeholder</span>=<span class="val">"••••••••"</span> <span class="tag">/&gt;</span>
+
+  <span class="tag">&lt;input</span> <span class="atr">type</span>=<span class="val">"submit"</span> <span class="atr">value</span>=<span class="val">"Log in"</span> <span class="tag">/&gt;</span>
+
+<span class="tag">&lt;/form&gt;</span></code></pre>
+            <p style="color: var(--text-secondary); font-size: 0.9rem">
+              The <code>type</code> attribute on an input controls how it
+              renders and what it accepts — <code>email</code> validates email
+              format, <code>password</code> hides the text,
+              <code>required</code> prevents submission if the field is empty.
+            </p>
+            <!-- Button and hidden image -->
+            <p style="margin-top: 16px; color: var(--text-secondary)">
+              Curious what a form looks like rendered in the browser? Click
+              below to see.
+            </p>
+
+            <button
+              onclick="toggleFormOutput()"
+              id="form-toggle-btn"
+              class="btn btn-outline"
+              style="margin-top: 8px"
+            >
+              Show rendered output
+            </button>
+
+            <img
+              id="form-output-img"
+              src="assets/img/htmlform.jpg"
+              alt="Rendered HTML form example"
+              style="
+                display: none;
+                margin-top: 16px;
+                max-width: 100%;
+                border-radius: 8px;
+                border: 1px solid var(--border);
+              "
+            />
+
+            <script>
+              /* Toggle the form output image on and off */
+              function toggleFormOutput() {
+                const img = document.getElementById("form-output-img");
+                const btn = document.getElementById("form-toggle-btn");
+
+                if (img.style.display === "none") {
+                  img.style.display = "block";
+                  btn.textContent = "Hide rendered output";
+                } else {
+                  img.style.display = "none";
+                  btn.textContent = "Show rendered output";
+                }
+              }
+            </script>
+          </div>
+
+          <!-- HTML Tables Card -->
+          <div class="card mb-4">
+            <h3>HTML tables</h3>
+            <p>
+              Tables organise data into rows and columns. They get a bad
+              reputation because developers used to abuse them for page layout —
+              don't do that. Tables are for tabular data only. Use CSS for
+              layout.
+            </p>
+            <pre><code><span class="tag">&lt;table&gt;</span>
+  <span class="tag">&lt;tr&gt;</span>                          <span class="cmt">&lt;!-- table row --&gt;</span>
+    <span class="tag">&lt;th&gt;</span>Language<span class="tag">&lt;/th&gt;</span>           <span class="cmt">&lt;!-- header cell --&gt;</span>
+    <span class="tag">&lt;th&gt;</span>Created<span class="tag">&lt;/th&gt;</span>
+    <span class="tag">&lt;th&gt;</span>Used for<span class="tag">&lt;/th&gt;</span>
+  <span class="tag">&lt;/tr&gt;</span>
+  <span class="tag">&lt;tr&gt;</span>
+    <span class="tag">&lt;td&gt;</span>HTML<span class="tag">&lt;/td&gt;</span>               <span class="cmt">&lt;!-- data cell --&gt;</span>
+    <span class="tag">&lt;td&gt;</span>1991<span class="tag">&lt;/td&gt;</span>
+    <span class="tag">&lt;td&gt;</span>Structure<span class="tag">&lt;/td&gt;</span>
+  <span class="tag">&lt;/tr&gt;</span>
+  <span class="tag">&lt;tr&gt;</span>
+    <span class="tag">&lt;td&gt;</span>CSS<span class="tag">&lt;/td&gt;</span>
+    <span class="tag">&lt;td&gt;</span>1996<span class="tag">&lt;/td&gt;</span>
+    <span class="tag">&lt;td&gt;</span>Styling<span class="tag">&lt;/td&gt;</span>
+  <span class="tag">&lt;/tr&gt;</span>
+  <span class="tag">&lt;tr&gt;</span>
+    <span class="tag">&lt;td&gt;</span>JavaScript<span class="tag">&lt;/td&gt;</span>
+    <span class="tag">&lt;td&gt;</span>1995<span class="tag">&lt;/td&gt;</span>
+    <span class="tag">&lt;td&gt;</span>Behaviour<span class="tag">&lt;/td&gt;</span>
+  <span class="tag">&lt;/tr&gt;</span>
+<span class="tag">&lt;/table&gt;</span></code></pre>
+
+            <!-- Button and hidden image -->
+            <p style="margin-top: 16px; color: var(--text-secondary)">
+              Curious what a table looks like rendered in the browser? Click
+              below to see.
+            </p>
+
+            <button
+              onclick="toggleTableOutput()"
+              id="table-toggle-btn"
+              class="btn btn-outline"
+              style="margin-top: 8px"
+            >
+              Show rendered output
+            </button>
+
+            <img
+              id="table-output-img"
+              src="assets/img/htmltable.png"
+              alt="Rendered HTML table example"
+              style="
+                display: none;
+                margin-top: 16px;
+                max-width: 100%;
+                border-radius: 8px;
+                border: 1px solid var(--border);
+              "
+            />
+
+            <script>
+              /* Toggle the table output image on and off */
+              function toggleTableOutput() {
+                const img = document.getElementById("table-output-img");
+                const btn = document.getElementById("table-toggle-btn");
+
+                /* Check if image is currently hidden */
+                if (img.style.display === "none") {
+                  img.style.display = "block"; /* show it */
+                  btn.textContent = "Hide rendered output";
+                } else {
+                  img.style.display = "none"; /* hide it again */
+                  btn.textContent = "Show rendered output";
+                }
+              }
+            </script>
           </div>
           <!-- ===== VIDEO SECTION ===== -->
           <div class="card mb-4">
@@ -420,8 +648,8 @@
                   this.value + "px";
               });
             </script>
+
             <p>
-              <br />
               <br />
               Fellas, today is the day we give CSS the respect it deserves.
               Let's dive into the world of selectors, properties, and the box
@@ -495,18 +723,143 @@
 }</code></pre>
           </div>
 
+          <!-- Bootstrap Card -->
           <div class="card mb-4">
-            <h3>Responsive design with Bootstrap</h3>
+            <h3>Responsive design &amp; CSS frameworks</h3>
             <p>
-              Bootstrap is a CSS framework that provides a grid system and
-              ready-made components. It uses 12 columns, and you control how
-              many columns an element spans at each screen size.
+              Writing responsive CSS from scratch for every screen size is
+              tedious and error-prone. This is where CSS frameworks come in. A
+              framework is a pre-written collection of CSS (and sometimes
+              JavaScript) that gives you a solid foundation to build on — so you
+              can focus on design instead of mechanics.
             </p>
-            <pre><code><span class="cmt">&lt;!-- Two columns side by side on medium+ screens --&gt;</span>
+            <p>
+              <strong>Bootstrap</strong> is the most popular CSS framework in
+              the world. It gives you a 12-column grid system, responsive
+              breakpoints, and ready-made components like buttons, navbars, and
+              cards — all working out of the box.
+            </p>
+
+            <h3 style="margin-top: 16px">Loading Bootstrap via CDN</h3>
+            <p>
+              The right way to use Bootstrap is to load it dynamically from a
+              Content Delivery Network (CDN) — not to download and store it
+              locally. A CDN serves the file from a server close to the user,
+              which is faster, and means your project folder stays clean.
+            </p>
+            <pre><code><span class="cmt">&lt;!-- Paste this in your &lt;head&gt; to load Bootstrap CSS --&gt;</span>
+<span class="tag">&lt;link</span>
+  <span class="atr">rel</span>=<span class="val">"stylesheet"</span>
+  <span class="atr">href</span>=<span class="val">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"</span>
+<span class="tag">/&gt;</span>
+
+<span class="cmt">&lt;!-- Paste this before your closing &lt;/body&gt; to load Bootstrap JS --&gt;</span>
+<span class="tag">&lt;script</span>
+  <span class="atr">src</span>=<span class="val">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/script&gt;</span></code></pre>
+
+            <h3 style="margin-top: 16px">The 12-column grid</h3>
+            <p>
+              Bootstrap divides every row into 12 columns. You control how many
+              columns an element spans at each screen size using classes like
+              <code>col-md-6</code> (half width on medium screens and above). On
+              smaller screens, columns automatically stack vertically.
+            </p>
+            <pre><code><span class="cmt">&lt;!-- Two columns side by side on medium+ screens,
+     stacked on mobile --&gt;</span>
 <span class="tag">&lt;div</span> <span class="atr">class</span>=<span class="val">"row"</span><span class="tag">&gt;</span>
   <span class="tag">&lt;div</span> <span class="atr">class</span>=<span class="val">"col-md-6"</span><span class="tag">&gt;</span>Left column<span class="tag">&lt;/div&gt;</span>
   <span class="tag">&lt;div</span> <span class="atr">class</span>=<span class="val">"col-md-6"</span><span class="tag">&gt;</span>Right column<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="cmt">&lt;!-- Three equal columns --&gt;</span>
+<span class="tag">&lt;div</span> <span class="atr">class</span>=<span class="val">"row"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="atr">class</span>=<span class="val">"col-md-4"</span><span class="tag">&gt;</span>Column 1<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="atr">class</span>=<span class="val">"col-md-4"</span><span class="tag">&gt;</span>Column 2<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="atr">class</span>=<span class="val">"col-md-4"</span><span class="tag">&gt;</span>Column 3<span class="tag">&lt;/div&gt;</span>
 <span class="tag">&lt;/div&gt;</span></code></pre>
+
+            <h3 style="margin-top: 16px">Custom CSS always wins</h3>
+            <p>
+              Bootstrap is a starting point, not the finish line. The key to
+              making your site look unique is layering your own custom CSS on
+              top of Bootstrap. The trick is to load your stylesheet
+              <em>after</em> Bootstrap's, that way your rules override
+              Bootstrap's defaults wherever they conflict.
+            </p>
+            <pre><code><span class="cmt">&lt;!-- Bootstrap first --&gt;</span>
+<span class="tag">&lt;link</span> <span class="atr">rel</span>=<span class="val">"stylesheet"</span> <span class="atr">href</span>=<span class="val">"bootstrap.min.css"</span> <span class="tag">/&gt;</span>
+
+<span class="cmt">&lt;!-- Your custom CSS second — overrides Bootstrap --&gt;</span>
+<span class="tag">&lt;link</span> <span class="atr">rel</span>=<span class="val">"stylesheet"</span> <span class="atr">href</span>=<span class="val">"css/style.css"</span> <span class="tag">/&gt;</span></code></pre>
+            <p style="color: var(--text-secondary); font-size: 0.9rem">
+              This is exactly how WeaselCodes is built. Bootstrap handles the
+              responsive grid and base styles, while
+              <code>style.css</code> handles the theme, accents, custom fonts,
+              and everything else that makes this site look awe-to-the-some,
+              baby!
+            </p>
+          </div>
+          <!-- Colours & Typography Card -->
+          <div class="card mb-4">
+            <h3>Colours &amp; typography</h3>
+            <p>
+              CSS gives you three ways to specify colour, and full control over
+              how text looks. These two things alone account for most of the
+              visual personality of a website.
+            </p>
+            <pre><code><span class="cmt">/* Three ways to write the same colour */</span>
+<span class="sel">h1</span> { <span class="prop">color</span>: <span class="val">cyan</span>; }          <span class="cmt">/* named colour */</span>
+<span class="sel">h1</span> { <span class="prop">color</span>: <span class="val">#00BFFF</span>; }       <span class="cmt">/* hex code */</span>
+<span class="sel">h1</span> { <span class="prop">color</span>: <span class="val">rgb(0,191,255)</span>; } <span class="cmt">/* RGB values */</span>
+
+<span class="cmt">/* Typography properties */</span>
+<span class="sel">p</span> {
+  <span class="prop">font-family</span>: <span class="val">'Courier New', monospace</span>;
+  <span class="prop">font-size</span>:   <span class="val">1rem</span>;      <span class="cmt">/* relative to root font size */</span>
+  <span class="prop">font-weight</span>: <span class="val">700</span>;       <span class="cmt">/* 400 = normal, 700 = bold */</span>
+  <span class="prop">line-height</span>: <span class="val">1.7</span>;       <span class="cmt">/* spacing between lines */</span>
+  <span class="prop">text-align</span>:  <span class="val">center</span>;
+  <span class="prop">letter-spacing</span>: <span class="val">0.05em</span>;
+}</code></pre>
+          </div>
+          <!-- Pseudo-classes Card -->
+          <div class="card mb-4">
+            <h3>Pseudo-classes</h3>
+            <p>
+              Pseudo-classes let you style elements based on their
+              <em>state</em> — what the user is doing with them right now. The
+              most common one is <code>:hover</code>, which fires when the mouse
+              moves over an element. You've already seen this working on the tab
+              buttons above.
+            </p>
+            <pre><code><span class="cmt">/* Style a link normally */</span>
+<span class="sel">a</span> {
+  <span class="prop">color</span>: <span class="val">#00BFFF</span>;
+  <span class="prop">text-decoration</span>: <span class="val">none</span>;
+}
+
+<span class="cmt">/* Change it when the mouse hovers over it */</span>
+<span class="sel">a:hover</span> {
+  <span class="prop">color</span>: <span class="val">#ffffff</span>;
+  <span class="prop">text-decoration</span>: <span class="val">underline</span>;
+}
+
+<span class="cmt">/* Style an input when it is focused (clicked into) */</span>
+<span class="sel">input:focus</span> {
+  <span class="prop">border-color</span>: <span class="val">#00BFFF</span>;
+  <span class="prop">outline</span>: <span class="val">none</span>;
+}
+
+<span class="cmt">/* Style every other table row */</span>
+<span class="sel">tr:nth-child(even)</span> {
+  <span class="prop">background-color</span>: <span class="val">#1a2235</span>;
+}</code></pre>
+            <p style="color: var(--text-secondary); font-size: 0.9rem">
+              Other useful pseudo-classes: <code>:visited</code> for links
+              already clicked, <code>:first-child</code> for the first element
+              in a group, and <code>:disabled</code> for disabled form inputs.
+            </p>
           </div>
           <!-- ===== VIDEO SECTION ===== -->
           <div class="card mb-4">
@@ -583,7 +936,151 @@
               actually does something. Worth it. Trust the weasel.
             </p>
           </div>
+          <!-- JS Interactive Demo Card -->
+          <div class="card mb-4">
+            <h3>Try it yourself — age calculator</h3>
+            <p>
+              Enter your birthday below. JavaScript will calculate exactly how
+              old you are — down to the day. This demonstrates variables, the
+              built-in
+              <code>Date</code> object, arithmetic, and DOM manipulation all
+              working together.
+            </p>
 
+            <!-- Input -->
+            <div style="margin: 16px 0">
+              <label
+                for="birthday-input"
+                style="
+                  display: block;
+                  font-size: 0.85rem;
+                  color: var(--text-secondary);
+                  margin-bottom: 8px;
+                "
+              >
+                Enter your date of birth
+              </label>
+              <input
+                type="date"
+                id="birthday-input"
+                style="
+                  padding: 10px 14px;
+                  border-radius: 8px;
+                  border: 1px solid var(--border);
+                  background: var(--bg-tertiary);
+                  color: var(--text-primary);
+                  font-family: &quot;Courier New&quot;, monospace;
+                  font-size: 0.95rem;
+                  cursor: pointer;
+                "
+              />
+            </div>
+
+            <!-- Calculate button -->
+            <button onclick="calculateAge()" class="btn btn-primary">
+              Calculate my age
+            </button>
+
+            <!-- Result display -->
+            <div
+              id="age-result"
+              style="
+                display: none;
+                margin-top: 20px;
+                padding: 20px;
+                background: var(--bg-tertiary);
+                border-radius: 8px;
+                border-left: 3px solid var(--accent);
+                font-family: &quot;Courier New&quot;, monospace;
+              "
+            >
+              <p
+                id="age-years"
+                style="
+                  font-size: 1.4rem;
+                  color: var(--accent);
+                  margin-bottom: 4px;
+                "
+              ></p>
+              <p
+                id="age-days"
+                style="
+                  font-size: 0.9rem;
+                  color: var(--text-secondary);
+                  margin: 0;
+                "
+              ></p>
+            </div>
+
+            <!-- Error message -->
+            <p
+              id="age-error"
+              style="
+                display: none;
+                margin-top: 12px;
+                color: var(--danger);
+                font-size: 0.9rem;
+              "
+            ></p>
+
+            <script>
+              function calculateAge() {
+                /* Get the value from the date input */
+                const input = document.getElementById("birthday-input");
+                const resultBox = document.getElementById("age-result");
+                const errorMsg = document.getElementById("age-error");
+
+                /* Hide previous results */
+                resultBox.style.display = "none";
+                errorMsg.style.display = "none";
+
+                /* Check the user actually entered a date */
+                if (!input.value) {
+                  errorMsg.textContent =
+                    "Please enter your date of birth first.";
+                  errorMsg.style.display = "block";
+                  return;
+                }
+
+                /* Create Date objects for today and the birthday */
+                const today = new Date();
+                const birthday = new Date(input.value);
+
+                /* Reject future dates */
+                if (birthday > today) {
+                  errorMsg.textContent =
+                    "That date is in the future. Are you a time traveller?";
+                  errorMsg.style.display = "block";
+                  return;
+                }
+
+                /* Calculate the difference in years */
+                let years = today.getFullYear() - birthday.getFullYear();
+
+                /* Subtract a year if the birthday hasn't happened yet this year */
+                const monthDiff = today.getMonth() - birthday.getMonth();
+                if (
+                  monthDiff < 0 ||
+                  (monthDiff === 0 && today.getDate() < birthday.getDate())
+                ) {
+                  years--;
+                }
+
+                /* Calculate total days alive */
+                const msPerDay = 1000 * 60 * 60 * 24;
+                const totalDays = Math.floor((today - birthday) / msPerDay);
+
+                /* Display the result using DOM manipulation */
+                document.getElementById("age-years").textContent =
+                  "You are " + years + " years old.";
+                document.getElementById("age-days").textContent =
+                  "That is " +
+                  totalDays.toLocaleString() +
+                  " days of being alive.";
+                resultBox.style.display = "block";
+              }
+            </script>
+          </div>
           <div class="card mb-4">
             <h3>Variables and data types</h3>
             <p>
@@ -668,6 +1165,69 @@ btn.addEventListener(<span class="str">"click"</span>, <span class="kw">function
 btn.addEventListener(<span class="str">"click"</span>, () =&gt; {
   alert(<span class="str">"Button was clicked!"</span>);
 });</code></pre>
+          </div>
+          <!-- BOM Card -->
+          <div class="card mb-4">
+            <h3>The Browser Object Model (BOM)</h3>
+            <p>
+              The DOM is just one part of a bigger picture. The Browser Object
+              Model (BOM) is JavaScript's access to the entire browser
+              environment — not just the page content, but the window itself,
+              the URL, the history, and even local storage. The root of the BOM
+              is the <code>window</code>
+              object, which represents the browser tab.
+            </p>
+            <pre><code><span class="cmt">// The window object — the global scope in browsers</span>
+console.log(window.innerWidth);   <span class="cmt">// browser window width</span>
+console.log(window.innerHeight);  <span class="cmt">// browser window height</span>
+
+<span class="cmt">// location — read and change the current URL</span>
+console.log(window.location.href);        <span class="cmt">// current page URL</span>
+window.location.href = <span class="str">"quiz.html"</span>;       <span class="cmt">// navigate to quiz</span>
+
+<span class="cmt">// localStorage — store data in the browser permanently</span>
+localStorage.setItem(<span class="str">"score"</span>, <span class="str">"8"</span>);       <span class="cmt">// save a value</span>
+<span class="kw">const</span> score = localStorage.getItem(<span class="str">"score"</span>); <span class="cmt">// retrieve it</span>
+localStorage.removeItem(<span class="str">"score"</span>);         <span class="cmt">// delete it</span></code></pre>
+            <p style="color: var(--text-secondary); font-size: 0.9rem">
+              <code>localStorage</code> survives page reloads and even closing
+              the browser. This is exactly what the quiz page uses to remember
+              your previous attempts.
+            </p>
+          </div>
+          <!-- jQuery Card -->
+          <div class="card mb-4">
+            <h3>jQuery: JavaScript, but friendlier</h3>
+            <p>
+              Vanilla JavaScript DOM manipulation can be verbose. jQuery is a
+              library that wraps all of that into shorter, cleaner syntax.
+              Released in 2006, it became the most widely used JavaScript
+              library in the world. Everything starts with the
+              <code>$</code> selector.
+            </p>
+            <pre><code><span class="cmt">// Vanilla JS vs jQuery — same result, less typing</span>
+
+<span class="cmt">// Vanilla JS</span>
+document.getElementById(<span class="str">"box"</span>).style.display = <span class="str">"none"</span>;
+
+<span class="cmt">// jQuery equivalent</span>
+$(<span class="str">"#box"</span>).hide();
+
+<span class="cmt">// Wait for the page to fully load before running code</span>
+$(document).ready(<span class="kw">function</span>() {
+
+  <span class="cmt">// Click event on a button</span>
+  $(<span class="str">"button"</span>).click(<span class="kw">function</span>() {
+    $(<span class="str">"#message"</span>).text(<span class="str">"Button clicked!"</span>);
+    $(<span class="str">"#message"</span>).css(<span class="str">"color"</span>, <span class="str">"#00BFFF"</span>);
+  });
+
+});</code></pre>
+            <p style="color: var(--text-secondary); font-size: 0.9rem">
+              jQuery is loaded via CDN just like Bootstrap. We use it in the
+              quiz page for AJAX requests — fetching the questions file and the
+              reward API without reloading the page.
+            </p>
           </div>
           <div class="card mb-4">
             <h3>See it in action</h3>
