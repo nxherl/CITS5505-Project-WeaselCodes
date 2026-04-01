@@ -12,6 +12,209 @@
     />
     <!-- Shared stylesheet -->
     <link rel="stylesheet" href="css/style.css" />
+    <style>
+      /* ---------- CV-specific styles ---------- */
+
+      /* Profile header section */
+      .cv-profile {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        padding: 40px 0;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+
+      .cv-photo {
+        width: 300px;
+        height: 300px;
+        object-fit: contain;
+        flex-shrink: 0;
+      }
+
+      .cv-profile-info h1 {
+        font-size: 2rem;
+        margin-bottom: 4px;
+      }
+
+      .cv-profile-info .cv-title {
+        color: var(--accent);
+        font-family: var(--font-heading);
+        font-size: 0.95rem;
+        letter-spacing: 0.08em;
+        margin-bottom: 12px;
+      }
+
+      .cv-contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        font-family: var(--font-heading);
+      }
+
+      .cv-contact span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      /* Section headings */
+      .cv-section {
+        margin-bottom: 40px;
+      }
+
+      .cv-section-title {
+        font-family: var(--font-heading);
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      /* Experience and education items */
+/* Experience and education items — LinkedIn style */
+.cv-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 28px;
+  align-items: flex-start;
+}
+
+.cv-item-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-tertiary);
+  flex-shrink: 0;
+  padding: 4px;
+}
+
+.cv-item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.cv-item-body:hover {
+  border-left: none;
+}
+
+.cv-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.cv-item-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--text-heading);
+  margin: 0;
+}
+
+.cv-item-date {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.cv-item-org {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  font-family: var(--font-heading);
+}
+
+      /* Skills grid */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+      }
+
+      .skill-category h4 {
+        font-family: var(--font-heading);
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .skill-tag {
+        display: inline-block;
+        background: var(--bg-tertiary);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 4px 10px;
+        font-family: var(--font-heading);
+        font-size: 0.78rem;
+        color: var(--text-secondary);
+        margin: 3px 3px 3px 0;
+        transition: all 0.2s ease;
+        cursor: default;
+      }
+
+      .skill-tag:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      /* Action buttons */
+      .cv-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+
+      /* References section */
+      .references-section {
+        margin-top: 56px;
+        padding-top: 32px;
+        border-top: 1px solid var(--accent);
+      }
+
+      .references-section h2 {
+        color: var(--accent);
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+
+      .reference-item {
+        margin-bottom: 16px;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.8;
+        padding-left: 16px;
+        border-left: 2px solid var(--border);
+      }
+
+      /* Responsive */
+      @media (max-width: 600px) {
+        .cv-profile {
+          flex-direction: column;
+          text-align: center;
+        }
+        .cv-contact {
+          justify-content: center;
+        }
+        .cv-item-header {
+          flex-direction: column;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- ===================== NAVIGATION ===================== -->
@@ -30,14 +233,266 @@
     <!-- ===================== PAGE CONTENT ===================== -->
     <div class="page-wrapper">
       <div class="container">
-        <!-- Hero -->
-        <div class="hero">
-          <p class="hero-label">// About me</p>
-          <h1>Curriculum Vitae</h1>
-          <p>A brief biography and professional profile.</p>
-        </div>
+        <!-- ===== PROFILE HEADER ===== -->
+        <header class="cv-profile">
+          <img
+            src="assets/img/nevis.png"
+            alt="Profile photo of [Your Name]"
+            class="cv-photo"
+          />
 
-        <!-- CV content -->
+          <div class="cv-profile-info">
+            <p class="hero-label">// Curriculum Vitae</p>
+            <h1>Nevis Herlangga</h1>
+            <p class="cv-title">
+              Master of Information Technology Student - University of Western
+              Australia
+            </p>
+
+            <!-- Placeholders for personal contact info -->
+            <div class="cv-contact">
+              <span>&#9993; 24500079@student.uwa.edu.au</span>
+              <span>&#127758;Perth, Western Australia <br /></span>
+              <span>&#128279; github.com/nxherl</span>
+            </div>
+
+
+        <!-- ===== ABOUT / BIOGRAPHY ===== -->
+        <section class="cv-section" aria-label="About me"> <br>
+
+          <p class="cv-section-title">// About me</p>
+          <div class="card">
+            <p>
+10+ years IT professional focusing in the Internet Service Provider industry as a network engineer delivering complex infrastructure projects across IP backbone networks, MPLS, segment routing, internet gateways, broadband infrastructure, and data centre builds. 
+I specialised as a Cisco professional but worked across multiple platforms: Juniper, MikroTik, HP, Fortinet, and ZTE. 
+<br> <br>As the industry changed, I saw the need to evolve as well. Engineers who once spent hours manually configuring routers began writing scripts to do it in seconds. 
+Infrastructure-as-code, DevOps pipelines, and network programmability have become job requirements.  
+
+This is what brought me to the University of Western Australia and the Master of Information Technology program. The intersection of networking and software is where the industry is heading. 
+I am here to close the gap between what I know and what the industry needs, and to come out the other side as an engineer who can build, automate, and scale. 
+
+<br><br>The network world I came from was rigid by nature. The software world runs on Agile: iterative, fast, and continuously improving.  The hardest part of this transition has been learning to think differently. 
+What changed is the methodology. Networking gave me the discipline of careful planning and understand the stake of getting it wrong. Agile gave me the freedom to iterate, the confidence to ship imperfect work and constantly improve it. 
+ <br><br>
+That shift in mindset is as valuable as any certification I have ever earned.
+The combination of infrastructure thinking and iterative development is exactly what modern DevOps need and it is the goal that I am aiming toward.
+
+            </p>
+          </div>
+        </section>
+
+ <!-- ===== EDUCATION ===== -->
+<section class="cv-section" aria-label="Education">
+  <p class="cv-section-title">// Education</p>
+
+  <div class="cv-item">
+    <img src="assets/img/uwa.png" alt="UWA logo" class="cv-item-logo" />
+    <div class="cv-item-body">
+      <div class="cv-item-header">
+        <h3 class="cv-item-title">Master of Information Technology</h3>
+        <span class="cv-item-date">2025 — Present</span>
+      </div>
+      <p class="cv-item-org">University of Western Australia &mdash; Perth, WA</p>
+      <p>
+A comprehensive postgraduate program specialising in applied computing covering software development, data science, cybersecurity, and IT management.
+      </p>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section class="cv-section" aria-label="Experience">
+  <p class="cv-section-title">// Experience</p>
+
+  <!-- Mastersystem -->
+  <div class="cv-item">
+    <img src="assets/img/msi.jpg" alt="Mastersystem logo" class="cv-item-logo" />
+    <div class="cv-item-body">
+      <div class="cv-item-header">
+        <h3 class="cv-item-title">Senior Network Engineer</h3>
+        <span class="cv-item-date">Aug 2016 — Jan 2025</span>
+      </div>
+      <p class="cv-item-org">Mastersystem Infotama &mdash; Jakarta, Indonesia &middot; Hybrid</p>
+      <p>
+      •	Engage with Telco users to cater the demands in tech integration and enhancements of services.
+<br>•	Escalation point for operation, maintenance and troubleshooting on Cisco devices.
+<br>•	Produce design documents: Site survey, POC, HLD, LLD, MOP, UAT and other deep assessment documents to be implemented throughout the project.	
+<br>•	Perform various network maintenance activities such as configuration, on-site device installation, upgrades and migration. 
+•	<br>Technology revolves around IP backbone, MPLS, traffic engineering, segment routing, internet gateways, broadband network, wireless controller, data center infrastructure and multicast.   
+      </p>
+    </div>
+  </div>
+
+  <!-- MyRepublic -->
+  <div class="cv-item">
+    <img src="assets/img/myrep.jpg" alt="MyRepublic logo" class="cv-item-logo" />
+    <div class="cv-item-body">
+      <div class="cv-item-header">
+        <h3 class="cv-item-title">Network Engineer</h3>
+        <span class="cv-item-date">Apr 2013 — Apr 2016</span>
+      </div>
+      <p class="cv-item-org">MyRepublic ID &mdash; Jakarta, Indonesia &middot; On-site</p>
+      <p>
+•	Provide and maintain data connection of client's network.
+<br>•	Responsible for service implementation for corporate customers.
+From survey phase, network installation supervision, network testing and developing final report.
+<br>•	Clients’ network services include Leased Line, Internet and telephony through Fiber Optics Network (GPON) & Wireless Access.
+      </p>
+    </div>
+  </div>
+<section class="cv-section" aria-label="Certifications">
+  <p class="cv-section-title">// Certifications</p>
+
+  <!-- Cisco Certified Network Professional Enterprise-->
+  <div class="cv-item">
+    <img src="assets/img/ccnpe.jpg" alt="Cisco logo" class="cv-item-logo" />
+    <div class="cv-item-body">
+      <div class="cv-item-header">
+        <h3 class="cv-item-title">Cisco Certified Network Professional Enterprise</h3>
+      </div>
+       <p>Issued 2026</p>
+    </div>
+  </div>
+    <!-- Cisco Certified Network Professional SP-->
+  <div class="cv-item">
+    <img src="assets/img/ccnpsp.jpg" alt="Cisco logo" class="cv-item-logo" />
+    <div class="cv-item-body">
+      <div class="cv-item-header">
+        <h3 class="cv-item-title">Cisco Certified Network Professional Service Provider</h3>
+      </div>
+       <p>Issued 2026</p>
+    </div>
+  </div>
+    <!-- Ciena Optical Communications Associate-->
+    <div class="cv-item">
+    <img src="assets/img/ciena.jpg" alt="Ciena logo" class="cv-item-logo" />
+    <div class="cv-item-body">
+      <div class="cv-item-header">
+        <h3 class="cv-item-title">Ciena Optical Communications Associate</h3>
+      </div>
+       <p>Issued 2021</p>
+    </div>
+  </div>
+      <!-- Tarana G1 Technical Associate-->
+    <div class="cv-item">
+    <img src="assets/img/tarana.jpg" alt="Ciena logo" class="cv-item-logo" />
+    <div class="cv-item-body">
+      <div class="cv-item-header">
+        <h3 class="cv-item-title">Tarana G1 Technical Associate</h3>
+      </div>
+       <p>Issued 2024</p>
+    </div>
+  </div>
+
+        <!-- Miktrotik Certified Network Associate-->
+    <div class="cv-item">
+    <img src="assets/img/mikrotik.jpg" alt="Miktrotik logo" class="cv-item-logo" />
+    <div class="cv-item-body">
+      <div class="cv-item-header">
+        <h3 class="cv-item-title">Miktrotik Certified Network Associate</h3>
+      </div>
+       <p>Issued 2014</p>
+    </div>
+  </div>
+
+        <!-- ===== SKILLS ===== -->
+        <section class="cv-section" aria-label="Skills">
+          <p class="cv-section-title">// Skills</p>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h4>Languages</h4>
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Cisco IOS-XR</span>
+              <span class="skill-tag">Cisco IOS-XE</span>
+              <span class="skill-tag">Juniper JUNOS</span>
+              <span class="skill-tag">R</span>
+              <span class="skill-tag">C++</span>
+            </div>
+
+            <div class="skill-category">
+              <h4>Tools</h4>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Hyper-V</span>
+              <span class="skill-tag">GNS3</span>
+              <span class="skill-tag">EVE-NG</span>
+              <span class="skill-tag">Tableau</span>
+            </div>
+
+            <div class="skill-category">
+              <h4>Soft Skills</h4>
+              <span class="skill-tag">Problem solving</span>
+              <span class="skill-tag">Communication</span>
+              <span class="skill-tag">Analytical</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== REFERENCES ===== -->
+        <section class="references-section" aria-label="References">
+          <h2>References</h2>
+          <p
+            style="
+              color: var(--text-secondary);
+              font-size: 0.9rem;
+              margin-bottom: 20px;
+            "
+          >
+            All sources used in the preparation of this assignment are listed below 
+          </p>
+          <div class="reference-item">
+  Alvi, M., &amp; Daggitt, M. (2025). <em>CITS5505 Lecture 06: JavaScript Core</em> [Lecture slides].
+  University of Western Australia.
+</div>
+
+<div class="reference-item">
+  Alvi, M., &amp; Daggitt, M. (2025). <em>CITS5505 Lecture 07: JavaScript Client Side</em> [Lecture slides].
+  University of Western Australia.
+</div>
+
+<div class="reference-item">
+  W3Schools. (2024). <em>Bootstrap 3 Tutorial</em>. Retrieved from
+  <a href="https://www.w3schools.com/bootstrap/default.asp" target="_blank">https://www.w3schools.com/bootstrap/default.asp</a>
+</div>
+
+<div class="reference-item">
+  Bootstrap. (2024). <em>Bootstrap 4.3 — Getting Started</em>. Retrieved from
+  <a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" target="_blank">https://getbootstrap.com/docs/4.3/getting-started/introduction/</a>
+</div>
+
+<div class="reference-item">
+  Bro Code. (2024). <em>HTML &amp; CSS Full Course for free</em> [Video]. YouTube.
+  Retrieved from <a href="https://www.youtube.com/watch?v=HGTJBPNC-Gw" target="_blank">https://www.youtube.com/watch?v=HGTJBPNC-Gw</a>
+</div>
+
+          <div class="reference-item">
+            Bootstrap. (2024). <em>Bootstrap 5.3 Documentation</em>. Retrieved
+            from
+            <a href="https://getbootstrap.com/docs/5.3/" target="_blank"
+              >https://getbootstrap.com/docs/5.3/</a
+            >
+          </div>
+
+
+          <div class="reference-item">
+            Anthropic. (2025).
+            <em>Claude (claude-sonnet-4-5) [Large language model]</em>. Used for
+            code assistance and content suggestions
+            throughout the development of this project. Retrieved from
+            <a href="https://claude.ai" target="_blank">https://claude.ai</a>
+          </div>
+
+<div class="reference-item">
+  GitHub. (2025). <em>GitHub Copilot [AI coding assistant]</em>.
+  Used for code debugging during the development of this project.
+  Retrieved from <a href="https://github.com/features/copilot" target="_blank">https://github.com/features/copilot</a>
+</div>
+        </section>
       </div>
       <!-- end .container -->
     </div>
@@ -50,7 +505,35 @@
       </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- CV page JavaScript -->
+    <script>
+      /**
+       * filterSkills - shows only the skill tags matching the
+       * selected category, hides all others.
+       *
+       * @param {string} category - 'all', 'language', 'framework', or 'tool'
+       */
+      function filterSkills(category) {
+        /* Get all skill tags inside the filter area */
+        const tags = document.querySelectorAll("#skill-filter-area .skill-tag");
+
+        /* Loop through each tag */
+        tags.forEach(function (tag) {
+          /* Read the data-category attribute from the HTML element */
+          const tagCategory = tag.getAttribute("data-category");
+
+          if (category === "all" || tagCategory === category) {
+            /* Show matching tags */
+            tag.style.display = "inline-block";
+          } else {
+            /* Hide non-matching tags */
+            tag.style.display = "none";
+          }
+        });
+      }
+    </script>
   </body>
 </html>
