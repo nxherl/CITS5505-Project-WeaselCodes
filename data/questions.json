@@ -1,0 +1,122 @@
+[
+  {
+    "question": "What does HTML stand for?",
+    "options": [
+      "HyperText Markup Language",
+      "HyperText Machine Language",
+      "HighText Markup Language",
+      "HyperTransfer Markup Language"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Which HTML element is used for the largest heading?",
+    "options": [
+      "&lt;h6&gt;",
+      "&lt;heading&gt;",
+      "&lt;h1&gt;",
+      "&lt;head&gt;"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "What is the correct HTML element for inserting a line break?",
+    "options": [
+      "&lt;break&gt;",
+      "&lt;lb&gt;",
+      "&lt;br&gt;",
+      "&lt;newline&gt;"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "Which HTML attribute provides alternative text for an image?",
+    "options": [
+      "title",
+      "src",
+      "alt",
+      "href"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "In HTML, semantic elements describe the purpose of the content. Which of the following is a semantic element?",
+    "options": [
+      "&lt;div&gt;",
+      "&lt;span&gt;",
+      "&lt;nav&gt;",
+      "&lt;b&gt;"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "What does CSS stand for?",
+    "options": [
+      "Creative Style Sheets",
+      "Cascading Style Sheets",
+      "Computer Style Sheets",
+      "Colourful Style Sheets"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Which CSS property is used to change the text colour of an element?",
+    "options": [
+      "text-color",
+      "font-color",
+      "color",
+      "foreground-color"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "In the CSS box model, which property creates space OUTSIDE the border?",
+    "options": [
+      "padding",
+      "spacing",
+      "border",
+      "margin"
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Which CSS selector targets an element with a specific class?",
+    "options": [
+      "#classname",
+      ".classname",
+      "*classname",
+      "@classname"
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Which keyword should you use in JavaScript to declare a variable that will NOT change?",
+    "options": [
+      "var",
+      "let",
+      "const",
+      "fixed"
+    ],
+    "correct": 2
+  },
+  {
+    "question": "What does DOM stand for in JavaScript?",
+    "options": [
+      "Document Object Model",
+      "Data Object Management",
+      "Document Oriented Model",
+      "Dynamic Object Model"
+    ],
+    "correct": 0
+  },
+  {
+    "question": "Which JavaScript method is used to find an HTML element by its ID?",
+    "options": [
+      "document.findElement()",
+      "document.querySelector()",
+      "document.getElementById()",
+      "document.getElement()"
+    ],
+    "correct": 2
+  }
+]
