@@ -452,6 +452,42 @@
               }
             </script>
           </div>
+          <!-- HTML Best Practices Card -->
+          <div class="card mb-4">
+            <h3>HTML best practices</h3>
+            <p>
+              Writing valid HTML is not just about making the browser happy.. it
+              is about writing code that is accessible, maintainable, and
+              future-proof. Here are the rules every good HTML developer
+              follows.
+            </p>
+            <pre><code><span class="cmt">&lt;!-- 1. Use semantic elements over generic divs --&gt;</span>
+<span class="tag">&lt;nav&gt;</span>...<span class="tag">&lt;/nav&gt;</span>        <span class="cmt">&lt;!-- good --&gt;</span>
+<span class="tag">&lt;div</span> <span class="atr">id</span>=<span class="val">"nav"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span> <span class="cmt">&lt;!-- avoid --&gt;</span>
+
+<span class="cmt">&lt;!-- 2. Always include alt text on images --&gt;</span>
+<span class="tag">&lt;img</span> <span class="atr">src</span>=<span class="val">"weasel.png"</span> <span class="atr">alt</span>=<span class="val">"WeaselCodes mascot"</span> <span class="tag">/&gt;</span> <span class="cmt">&lt;!-- good --&gt;</span>
+<span class="tag">&lt;img</span> <span class="atr">src</span>=<span class="val">"weasel.png"</span> <span class="tag">/&gt;</span>                       <span class="cmt">&lt;!-- avoid --&gt;</span>
+
+<span class="cmt">&lt;!-- 3. Always close your tags --&gt;</span>
+<span class="tag">&lt;p&gt;</span>This is correct.<span class="tag">&lt;/p&gt;</span>   <span class="cmt">&lt;!-- good --&gt;</span>
+<span class="tag">&lt;p&gt;</span>This will cause bugs.  <span class="cmt">&lt;!-- avoid --&gt;</span>
+
+<span class="cmt">&lt;!-- 4. Use lowercase for all tag names and attributes --&gt;</span>
+<span class="tag">&lt;input</span> <span class="atr">type</span>=<span class="val">"text"</span> <span class="tag">/&gt;</span>   <span class="cmt">&lt;!-- good --&gt;</span>
+&lt;INPUT TYPE="TEXT" /&gt;   <span class="cmt">&lt;!-- avoid --&gt;</span>
+
+<span class="cmt">&lt;!-- 5. Declare the language on the html element --&gt;</span>
+<span class="tag">&lt;html</span> <span class="atr">lang</span>=<span class="val">"en"</span><span class="tag">&gt;</span>   <span class="cmt">&lt;!-- helps screen readers and search engines --&gt;</span></code></pre>
+            <p style="color: var(--text-secondary); font-size: 0.9rem">
+              Always validate your HTML at
+              <a href="https://validator.w3.org" target="_blank"
+                >validator.w3.org</a
+              >
+              before submitting. A single unclosed tag can break an entire page
+              layout.
+            </p>
+          </div>
           <!-- ===== VIDEO SECTION ===== -->
           <div class="card mb-4">
             <h3>See it in action</h3>
@@ -861,6 +897,50 @@
               in a group, and <code>:disabled</code> for disabled form inputs.
             </p>
           </div>
+
+          <!-- CSS Best Practices Card -->
+          <div class="card mb-4">
+            <h3>CSS best practices</h3>
+            <p>
+              CSS is easy to write badly. It is easy to write rules that
+              conflict with each other, that break on some screens but not
+              others, or that become impossible to maintain as the project
+              grows. These habits keep your stylesheets clean.
+            </p>
+            <pre><code><span class="cmt">/* 1. Use external stylesheets — never inline styles */</span>
+<span class="cmt">/* Good — in style.css */</span>
+<span class="sel">.btn</span> { <span class="prop">background</span>: <span class="val">#00BFFF</span>; }
+
+<span class="cmt">/* Avoid — inline style on the element */</span>
+<span class="cmt">&lt;button style="background: #00BFFF"&gt; ...too hard to maintain</span>
+
+<span class="cmt">/* 2. Use CSS variables for colours and repeated values */</span>
+<span class="sel">:root</span> {
+  <span class="prop">--accent</span>: <span class="val">#00BFFF</span>;   <span class="cmt">/* change once, updates everywhere */</span>
+}
+<span class="sel">.btn</span> { <span class="prop">background</span>: <span class="val">var(--accent)</span>; }
+
+<span class="cmt">/* 3. Use class selectors — avoid ID selectors for styling */</span>
+<span class="sel">.card</span> { <span class="prop">padding</span>: <span class="val">24px</span>; }  <span class="cmt">/* reusable on many elements */</span>
+<span class="sel">#card</span> { <span class="prop">padding</span>: <span class="val">24px</span>; }  <span class="cmt">/* only works on one element */</span>
+
+<span class="cmt">/* 4. Load your CSS after Bootstrap so your rules win */</span>
+<span class="cmt">&lt;link href="bootstrap.css" /&gt;  &lt;!-- first --&gt;</span>
+<span class="cmt">&lt;link href="style.css" /&gt;      &lt;!-- second — overrides Bootstrap --&gt;</span>
+
+<span class="cmt">/* 5. Use a mobile-first approach */</span>
+<span class="sel">.container</span> { <span class="prop">width</span>: <span class="val">100%</span>; }          <span class="cmt">/* mobile default */</span>
+<span class="sel">@media (min-width: 768px)</span> {
+  <span class="sel">.container</span> { <span class="prop">max-width</span>: <span class="val">1200px</span>; } <span class="cmt">/* wider screens */</span>
+}</code></pre>
+            <p style="color: var(--text-secondary); font-size: 0.9rem">
+              Validate your CSS at
+              <a href="https://jigsaw.w3.org/css-validator/" target="_blank"
+                >jigsaw.w3.org/css-validator</a
+              >. Clean, organised CSS is one of the first things a developer
+              notices when reading someone else's code.
+            </p>
+          </div>
           <!-- ===== VIDEO SECTION ===== -->
           <div class="card mb-4">
             <h3>See it in action</h3>
@@ -1233,6 +1313,45 @@ $(document).ready(<span class="kw">function</span>() {
               jQuery is loaded via CDN just like Bootstrap. We use it in the
               quiz page for AJAX requests — fetching the questions file and the
               reward API without reloading the page.
+            </p>
+          </div>
+          <!-- JavaScript Best Practices Card -->
+          <div class="card mb-4">
+            <h3>JavaScript best practices</h3>
+            <p>
+              JavaScript is a forgiving language (nope, not a good thing). It
+              will let you do a lot of things that will cause you pain later.
+              These rules exist because experienced developers learned them the
+              hard way so you don't have to.
+            </p>
+            <pre><code><span class="cmt">// 1. Always use const or let — never var</span>
+<span class="kw">const</span> name = <span class="str">"Nevis"</span>;  <span class="cmt">// value won't change — use const</span>
+<span class="kw">let</span> score = <span class="num">0</span>;        <span class="cmt">// value will change — use let</span>
+<span class="kw">var</span> old = <span class="str">"avoid"</span>;    <span class="cmt">// var has confusing scoping rules</span>
+
+<span class="cmt">// 2. Always use strict equality ===, not ==</span>
+<span class="num">0</span> == <span class="str">""</span>   <span class="cmt">// true  — dangerous! JS converts types</span>
+<span class="num">0</span> === <span class="str">""</span>  <span class="cmt">// false — correct, different types</span>
+
+<span class="cmt">// 3. Keep JavaScript in external files</span>
+<span class="cmt">// In your HTML:</span>
+<span class="cmt">&lt;script src="js/quiz.js"&gt;&lt;/script&gt;  // good</span>
+<span class="cmt">&lt;script&gt; // hundreds of lines... &lt;/script&gt; // hard to maintain</span>
+
+<span class="cmt">// 4. Comment your code — explain the why, not the what</span>
+<span class="kw">let</span> score = <span class="num">0</span>; <span class="cmt">// bad comment: "sets score to 0"</span>
+<span class="kw">let</span> score = <span class="num">0</span>; <span class="cmt">// good comment: "tracks running total for quiz"</span>
+
+<span class="cmt">// 5. Always validate user input before using it</span>
+<span class="kw">const</span> input = document.getElementById(<span class="str">"age"</span>).value;
+<span class="kw">if</span> (!input) {
+  alert(<span class="str">"Please enter your age."</span>);
+  <span class="kw">return</span>; <span class="cmt">// stop here — never trust empty input</span>
+}</code></pre>
+            <p style="color: var(--text-secondary); font-size: 0.9rem">
+              The most important rule: write code as if the person who maintains
+              it after you is a dangerous psychopath who knows where you live.
+              Comment everything. Name things clearly. Keep functions small.
             </p>
           </div>
           <div class="card mb-4">
