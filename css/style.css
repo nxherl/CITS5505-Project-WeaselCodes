@@ -391,10 +391,94 @@ pre code {
 .mb-4 { margin-bottom: 2rem; }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 600px) {
-  .hero h1 { font-size: 1.8rem; }
-  .tab-buttons { flex-direction: column; }
-  .tab-btn { min-width: unset; }
-  .navbar .container { gap: 16px; }
-  .nav-links a { font-size: 0.78rem; padding: 6px 8px; }
+@media (max-width: 768px) {
+
+  /* Navbar — keep on one row, shrink elements */
+  .navbar {
+    height: auto;
+    min-height: var(--nav-height);
+    padding: 8px 0;
+  }
+
+  .navbar .container {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 16px;
+  }
+
+  .nav-logo {
+    font-size: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    padding: 5px 8px;
+  }
+
+  /* Hero — stack vertically */
+  .hero {
+    padding: 32px 0 24px;
+    margin-bottom: 32px;
+  }
+
+  .hero-layout {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 24px !important;
+  }
+
+  /* Reduce letter spacing to prevent vertical breaking */
+  .hero-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  /* Hero image — full width on mobile */
+  .hero-img {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 240px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  /* Tab buttons — stack vertically */
+  .tab-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tab-btn {
+    min-width: unset;
+    padding: 14px 12px;
+  }
+
+  /* Cards — reduce padding */
+  .card {
+    padding: 16px;
+  }
+
+  /* Quiz CTA */
+  .quiz-cta {
+    padding: 24px 16px;
+  }
+
+  /* Container padding */
+  .container {
+    padding: 0 16px;
+  }
 }

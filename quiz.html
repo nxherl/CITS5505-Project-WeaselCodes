@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="assets/img/weaselcodesicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeaselCodes — Quiz</title>
+    <!-- Bootstrap from CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <!-- Shared stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Quiz-specific styles -->
+    <link rel="stylesheet" href="css/quiz.css" />
+  </head>
+  <body>
+    <!-- ===================== NAVIGATION ===================== -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="nav-logo">
+          <img
+            src="assets/img/weaselcodesicon.png"
+            alt="WeaselCodes logo"
+            style="
+              width: 28px;
+              height: 28px;
+              border-radius: 50%;
+              margin-right: 8px;
+              vertical-align: middle;
+            "
+          />
+          Weasel<span>Codes</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="quiz.html" class="active">Quiz</a></li>
+          <li><a href="reflection.html">Reflection</a></li>
+          <li><a href="cv.html">About Me</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ===================== PAGE CONTENT ===================== -->
+    <div class="page-wrapper">
+      <div class="container">
+        <!-- Hero -->
+        <div class="hero">
+          <p class="hero-label">Prove yourself</p>
+          <h1>The WeaselCode Quiz</h1>
+          <p>
+            12 questions. 60% to pass. No peeking at the tutorial. The weasel is
+            watching.
+          </p>
+        </div>
+
+        <!-- ===== QUIZ AREA ===== -->
+        <!-- This section is shown while the quiz is in progress -->
+        <div id="quiz-area">
+          <!-- Loading state — shown while AJAX fetches questions.json -->
+          <div id="quiz-loading" class="card text-center" style="padding: 48px">
+            <p
+              style="
+                color: var(--text-secondary);
+                font-family: var(--font-heading);
+              "
+            >
+              Loading questions...
+            </p>
+          </div>
+
+          <!-- Error state — shown if AJAX fails -->
+          <div
+            id="quiz-error"
+            style="display: none"
+            class="card text-center"
+            style="padding: 48px"
+          >
+            <p style="color: var(--danger)">
+              Could not load questions. Please refresh the page and try again.
+            </p>
+          </div>
+
+          <!-- Questions container — JavaScript injects questions here -->
+          <div id="questions-container" style="display: none"></div>
+
+          <!-- Submit button — shown after questions load -->
+          <div id="submit-area" style="display: none; margin-top: 32px">
+            <button
+              id="submit-btn"
+              class="btn btn-primary"
+              onclick="submitQuiz()"
+              style="width: 100%; padding: 16px; font-size: 1rem"
+            >
+              Submit Quiz
+            </button>
+            <p
+              id="submit-error"
+              style="
+                display: none;
+                color: var(--danger);
+                margin-top: 12px;
+                font-family: var(--font-heading);
+                font-size: 0.85rem;
+                text-align: center;
+              "
+            >
+              Please answer all questions before submitting.
+            </p>
+          </div>
+        </div>
+        <!-- end #quiz-area -->
+
+        <!-- ===== RESULTS AREA ===== -->
+        <!-- Hidden until quiz is submitted — JavaScript shows this -->
+        <div id="results-area" style="display: none">
+          <!-- Score card -->
+          <div class="card mb-4" id="score-card">
+            <div
+              id="result-icon"
+              style="font-size: 3rem; text-align: center; margin-bottom: 16px"
+            ></div>
+            <h2
+              id="result-heading"
+              style="text-align: center; margin-bottom: 8px"
+            ></h2>
+            <p
+              id="result-message"
+              style="
+                text-align: center;
+                color: var(--text-secondary);
+                margin-bottom: 24px;
+              "
+            ></p>
+
+            <!-- Score stats -->
+            <div class="quiz-stats-grid">
+              <div class="quiz-stat-card">
+                <p class="quiz-stat-label">Score</p>
+                <p class="quiz-stat-value" id="stat-score"></p>
+              </div>
+              <div class="quiz-stat-card">
+                <p class="quiz-stat-label">Percentage</p>
+                <p class="quiz-stat-value" id="stat-percentage"></p>
+              </div>
+              <div class="quiz-stat-card">
+                <p class="quiz-stat-label">Result</p>
+                <p class="quiz-stat-value" id="stat-result"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reward section — only shown on pass, populated by AJAX -->
+          <div id="reward-area" style="display: none" class="card mb-4">
+            <h3 style="text-align: center; margin-bottom: 16px">
+              The weasel rewards you with a dog.
+            </h3>
+            <div
+              id="reward-loading"
+              style="
+                text-align: center;
+                color: var(--text-secondary);
+                font-family: var(--font-heading);
+                font-size: 0.85rem;
+              "
+            >
+              Fetching your reward...
+            </div>
+            <div id="reward-content" style="text-align: center; display: none">
+              <img
+                id="reward-dog-img"
+                src=""
+                alt="Your reward dog"
+                style="
+                  max-width: 100%;
+                  max-height: 400px;
+                  border-radius: 12px;
+                  border: 2px solid var(--accent);
+                "
+              />
+            </div>
+          </div>
+
+          <!-- Retry button -->
+          <div style="text-align: center; margin-bottom: 40px">
+            <button class="btn btn-outline" onclick="retryQuiz()">
+              Try again
+            </button>
+          </div>
+
+          <!-- ===== ATTEMPT HISTORY ===== -->
+          <section>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 16px;
+                flex-wrap: wrap;
+                gap: 12px;
+              "
+            >
+              <p class="reflection-section-title" style="margin: 0">
+                // Attempt history
+              </p>
+              <button
+                class="btn btn-outline"
+                onclick="clearHistory()"
+                style="font-size: 0.8rem; padding: 6px 14px"
+              >
+                Clear history
+              </button>
+            </div>
+
+            <!-- History entries injected here by JavaScript -->
+            <div id="history-container">
+              <p style="color: var(--text-secondary); font-size: 0.9rem">
+                No previous attempts.
+              </p>
+            </div>
+          </section>
+        </div>
+        <!-- end #results-area -->
+      </div>
+      <!-- end .container -->
+    </div>
+    <!-- end .page-wrapper -->
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 WeaselCodes</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Quiz logic — all in external file -->
+    <script src="js/quiz.js"></script>
+  </body>
+</html>
