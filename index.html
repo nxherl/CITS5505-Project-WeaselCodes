@@ -43,7 +43,7 @@
     </nav>
 
     <!-- ===================== PAGE CONTENT ===================== -->
-    <div class="page-wrapper">
+    <main class="page-wrapper">
       <div class="container">
         <!-- Hero -->
         <div
@@ -207,20 +207,6 @@
                 border: 1px solid var(--border);
               "
             />
-
-            <script>
-              function toggleStructureOutput() {
-                const img = document.getElementById("structure-output-img");
-                const btn = document.getElementById("structure-toggle-btn");
-                if (img.style.display === "none") {
-                  img.style.display = "block";
-                  btn.textContent = "Hide rendered output";
-                } else {
-                  img.style.display = "none";
-                  btn.textContent = "Show rendered output";
-                }
-              }
-            </script>
           </div>
 
           <div class="card mb-4">
@@ -272,20 +258,6 @@
                 border: 1px solid var(--border);
               "
             />
-
-            <script>
-              function toggleElementsOutput() {
-                const img = document.getElementById("elements-output-img");
-                const btn = document.getElementById("elements-toggle-btn");
-                if (img.style.display === "none") {
-                  img.style.display = "block";
-                  btn.textContent = "Hide rendered output";
-                } else {
-                  img.style.display = "none";
-                  btn.textContent = "Show rendered output";
-                }
-              }
-            </script>
           </div>
 
           <div class="card mb-4">
@@ -363,21 +335,6 @@
               data-cfasync="false"
               src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
             ></script>
-            <script>
-              /* Toggle the form output image on and off */
-              function toggleFormOutput() {
-                const img = document.getElementById("form-output-img");
-                const btn = document.getElementById("form-toggle-btn");
-
-                if (img.style.display === "none") {
-                  img.style.display = "block";
-                  btn.textContent = "Hide rendered output";
-                } else {
-                  img.style.display = "none";
-                  btn.textContent = "Show rendered output";
-                }
-              }
-            </script>
           </div>
 
           <!-- HTML Tables Card -->
@@ -439,23 +396,6 @@
                 border: 1px solid var(--border);
               "
             />
-
-            <script>
-              /* Toggle the table output image on and off */
-              function toggleTableOutput() {
-                const img = document.getElementById("table-output-img");
-                const btn = document.getElementById("table-toggle-btn");
-
-                /* Check if image is currently hidden */
-                if (img.style.display === "none") {
-                  img.style.display = "block"; /* show it */
-                  btn.textContent = "Hide rendered output";
-                } else {
-                  img.style.display = "none"; /* hide it again */
-                  btn.textContent = "Show rendered output";
-                }
-              }
-            </script>
           </div>
           <!-- HTML Best Practices Card -->
           <div class="card mb-4">
@@ -667,39 +607,6 @@
             </div>
 
             <!-- JS that powers the demo -->
-            <script>
-              /* Get references to all controls and the demo box */
-              const demoBox = document.getElementById("css-demo-box");
-              const demoBg = document.getElementById("demo-bg");
-              const demoColor = document.getElementById("demo-color");
-              const demoSize = document.getElementById("demo-size");
-              const demoRadius = document.getElementById("demo-radius");
-
-              /* Update background colour when picker changes */
-              demoBg.addEventListener("input", function () {
-                demoBox.style.backgroundColor = this.value;
-              });
-
-              /* Update text colour when picker changes */
-              demoColor.addEventListener("input", function () {
-                demoBox.style.color = this.value;
-                demoBox.style.borderColor = this.value;
-              });
-
-              /* Update font size when slider moves */
-              demoSize.addEventListener("input", function () {
-                demoBox.style.fontSize = this.value + "px";
-                document.getElementById("demo-size-label").textContent =
-                  this.value + "px";
-              });
-
-              /* Update border radius when slider moves */
-              demoRadius.addEventListener("input", function () {
-                demoBox.style.borderRadius = this.value + "px";
-                document.getElementById("demo-radius-label").textContent =
-                  this.value + "px";
-              });
-            </script>
 
             <p>
               <br />
@@ -1139,63 +1046,6 @@
               data-cfasync="false"
               src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
             ></script>
-            <script>
-              function calculateAge() {
-                /* Get the value from the date input */
-                const input = document.getElementById("birthday-input");
-                const resultBox = document.getElementById("age-result");
-                const errorMsg = document.getElementById("age-error");
-
-                /* Hide previous results */
-                resultBox.style.display = "none";
-                errorMsg.style.display = "none";
-
-                /* Check the user actually entered a date */
-                if (!input.value) {
-                  errorMsg.textContent =
-                    "Please enter your date of birth first.";
-                  errorMsg.style.display = "block";
-                  return;
-                }
-
-                /* Create Date objects for today and the birthday */
-                const today = new Date();
-                const birthday = new Date(input.value);
-
-                /* Reject future dates */
-                if (birthday > today) {
-                  errorMsg.textContent =
-                    "That date is in the future. Are you a time traveller?";
-                  errorMsg.style.display = "block";
-                  return;
-                }
-
-                /* Calculate the difference in years */
-                let years = today.getFullYear() - birthday.getFullYear();
-
-                /* Subtract a year if the birthday hasn't happened yet this year */
-                const monthDiff = today.getMonth() - birthday.getMonth();
-                if (
-                  monthDiff < 0 ||
-                  (monthDiff === 0 && today.getDate() < birthday.getDate())
-                ) {
-                  years--;
-                }
-
-                /* Calculate total days alive */
-                const msPerDay = 1000 * 60 * 60 * 24;
-                const totalDays = Math.floor((today - birthday) / msPerDay);
-
-                /* Display the result using DOM manipulation */
-                document.getElementById("age-years").textContent =
-                  "You are " + years + " years old.";
-                document.getElementById("age-days").textContent =
-                  "That is " +
-                  totalDays.toLocaleString() +
-                  " days of being alive.";
-                resultBox.style.display = "block";
-              }
-            </script>
           </div>
           <div class="card mb-4">
             <h3>Variables and data types</h3>
@@ -1427,7 +1277,7 @@ $(document).ready(<span class="kw">function</span>() {
         <!-- end #panel-js -->
 
         <!-- ===== QUIZ CTA ===== -->
-        <div class="quiz-cta">
+        <section class="quiz-cta" aria-label="Take the quiz">
           <h2>Ready to test yourself?</h2>
           <p>
             I have shown you the door. Only you can choose to walk through it.
@@ -1437,7 +1287,7 @@ $(document).ready(<span class="kw">function</span>() {
             a master weasel coder.
           </p>
           <a href="quiz.html" class="btn btn-primary">Take the quiz &rarr;</a>
-        </div>
+        </section>
       </div>
       <!-- end .container -->
     </div>
@@ -1455,34 +1305,7 @@ $(document).ready(<span class="kw">function</span>() {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Tab switching logic -->
-    <script>
-      /**
-       * showTab - hides all tab panels and buttons, then shows
-       * the one matching the given topic name.
-       *
-       * @param {string} topic - one of 'html', 'css', or 'js'
-       */
-      function showTab(topic) {
-        /* 1. Get all tab buttons and panels */
-        const buttons = document.querySelectorAll(".tab-btn");
-        const panels = document.querySelectorAll(".tab-panel");
-
-        /* 2. Remove 'active' from every button and panel */
-        buttons.forEach(function (btn) {
-          btn.classList.remove("active");
-          btn.setAttribute("aria-selected", "false");
-        });
-        panels.forEach(function (panel) {
-          panel.classList.remove("active");
-        });
-
-        /* 3. Add 'active' to the selected button and panel */
-        document.getElementById("btn-" + topic).classList.add("active");
-        document
-          .getElementById("btn-" + topic)
-          .setAttribute("aria-selected", "true");
-        document.getElementById("panel-" + topic).classList.add("active");
-      }
-    </script>
+    <!-- Main JS — all interactive logic for this page -->
+    <script src="js/main.js"></script>
   </body>
 </html>
