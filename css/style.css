@@ -204,6 +204,8 @@ a:hover {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 24px;
+  max-width: 1150px;   
+  margin: 0 auto;    
 }
 
 .card-accent {
