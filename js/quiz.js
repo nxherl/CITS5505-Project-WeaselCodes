@@ -212,7 +212,7 @@ function submitQuiz() {
     /* Show error message */
     const errorMsg = document.getElementById('submit-error');
     errorMsg.hidden = false;
-    errorMsg.textContent = 'Please answer all questions before submitting. Unanswered questions are highlighted in red.';
+    errorMsg.textContent = 'Please answer all questions before submitting.';
 
     /* Scroll to the first unanswered question */
     const card = document.getElementById('question-' + firstUnanswered);
