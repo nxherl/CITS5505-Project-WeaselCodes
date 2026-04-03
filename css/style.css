@@ -347,13 +347,22 @@ pre code {
 }
 
 /* ---------- Quiz CTA (bottom of tutorial) ---------- */
+
 .quiz-cta {
   margin-top: 56px;
-  padding: 36px;
+  margin-left: auto;   /* Centers the card */
+  margin-right: auto;  /* Centers the card */
+  max-width: 1150px;    /* Matches the visual width of the video section */
+  padding: 36px 24px;
   background: var(--bg-secondary);
   border: 1px solid var(--accent);
   border-radius: var(--radius-lg);
   text-align: center;
+}
+
+.quiz-cta .btn {
+  display: inline-block;
+  width: auto;
 }
 
 .quiz-cta h2 {
@@ -729,3 +738,4 @@ pre code {
   border-radius: 8px;
   border: 1px solid var(--border);
 }
+
