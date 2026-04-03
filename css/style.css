@@ -482,3 +482,250 @@ pre code {
     padding: 0 16px;
   }
 }
+
+/* ---------- Tutorial Page — Extracted from inline styles ---------- */
+
+/* Navbar logo icon */
+.nav-logo-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Hero text wrapper */
+.hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Hero layout — flex row on desktop, stacks on mobile via media query */
+.hero-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* Hero image */
+.hero-img {
+  width: 380px;
+  max-width: 40%;
+  height: auto;
+  opacity: 0.9;
+  border-radius: 12px;
+}
+
+/* Toggle output images — hidden by default, shown via JS */
+.toggle-img {
+  display: none;
+  margin-top: 16px;
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+/* Added by JS when image is toggled visible */
+.toggle-img-visible {
+  display: block;
+}
+
+/* Hint text below toggle buttons */
+.hint-text {
+  margin-top: 16px;
+  color: var(--text-secondary);
+}
+
+/* Note text — small muted footnote */
+.note-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Intro text — muted paragraph with bottom margin */
+.intro-text {
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+/* Responsive video embed wrapper */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* iframe inside video wrapper */
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+/* CSS demo controls row */
+.demo-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+/* Demo control labels */
+.demo-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Colour picker input */
+.demo-color-picker {
+  display: block;
+  margin-top: 4px;
+  width: 48px;
+  height: 32px;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+/* Range slider input */
+.demo-range {
+  display: block;
+  margin-top: 4px;
+  width: 160px;
+}
+
+/* CSS demo live preview box */
+.css-demo-preview {
+  background: #1a2235;
+  color: #00bfff;
+  font-size: 20px;
+  border-radius: 8px;
+  padding: 32px;
+  text-align: center;
+  border: 2px solid #00bfff;
+  font-family: var(--font-mono);
+  transition: all 0.2s ease;
+}
+
+/* Colour changer preview box (JS tab) */
+.colour-box-preview {
+  background: #1a2235;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  margin: 16px 0;
+  transition: background 0.4s ease;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+/* Button row — flex row of buttons */
+.btn-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Colour code display below colour changer */
+.colour-code-display {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Accent background span */
+.accent-bg {
+  background: var(--accent);
+}
+
+/* Input wrapper — spacing around form inputs */
+.input-wrapper {
+  margin: 16px 0;
+}
+
+/* Input label */
+.input-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+/* Date input field */
+.date-input {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+/* Age result box */
+.age-result-box {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  border-left: 3px solid var(--accent);
+  font-family: var(--font-mono);
+}
+
+/* Age years result */
+.age-years-display {
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+/* Age days result */
+.age-days-display {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Age error message */
+.age-error-msg {
+  display: none;
+  margin-top: 12px;
+  color: var(--danger);
+  font-size: 0.9rem;
+}
+
+/* Demo images */
+.demo-img {
+  width: 100%;
+  max-width: 400px;
+  margin: 16px 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.demo-img-wide {
+  width: 100%;
+  max-width: 600px;
+  margin: 16px auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.demo-img-sm {
+  width: 100%;
+  max-width: 300px;
+  margin: 16px auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}

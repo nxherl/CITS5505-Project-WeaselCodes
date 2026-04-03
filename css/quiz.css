@@ -170,3 +170,31 @@
   .quiz-stats-grid { grid-template-columns: 1fr; }
   .history-entry { flex-direction: column; align-items: flex-start; }
 }
+
+/* ---------- Quiz page — extracted from inline styles ---------- */
+
+.quiz-loading-card   { padding: 48px; }
+.quiz-loading-text   { color: var(--text-secondary); font-family: var(--font-heading); }
+.text-danger-msg     { color: var(--danger); }
+.submit-area         { margin-top: 32px; }
+.submit-btn          { width: 100%; padding: 16px; font-size: 1rem; }
+.submit-error-msg    { color: var(--danger); margin-top: 12px; font-family: var(--font-heading); font-size: 0.85rem; text-align: center; }
+.result-icon         { font-size: 3rem; text-align: center; margin-bottom: 16px; }
+.result-heading      { text-align: center; margin-bottom: 8px; }
+.result-message      { text-align: center; color: var(--text-secondary); margin-bottom: 24px; }
+.reward-heading      { text-align: center; margin-bottom: 16px; }
+.reward-loading      { text-align: center; color: var(--text-secondary); font-family: var(--font-heading); font-size: 0.85rem; }
+.reward-content      { text-align: center; }
+.retry-wrapper       { text-align: center; margin-bottom: 40px; }
+.history-header      { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px; }
+.reflection-section-title { margin: 0; }
+.btn-sm              { font-size: 0.8rem; padding: 6px 14px; }
+
+/* Dog reward image */
+.reward-dog-img {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 12px;
+  border: 2px solid var(--accent);
+  margin-top: 16px;
+}

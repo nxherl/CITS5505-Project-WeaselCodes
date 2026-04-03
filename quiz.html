@@ -23,13 +23,7 @@
           <img
             src="assets/img/weaselcodesicon.png"
             alt="WeaselCodes logo"
-            style="
-              width: 28px;
-              height: 28px;
-              border-radius: 50%;
-              margin-right: 8px;
-              vertical-align: middle;
-            "
+            class="nav-logo-icon"
           />
           Weasel<span>Codes</span>
         </a>
@@ -43,95 +37,64 @@
     </nav>
 
     <!-- ===================== PAGE CONTENT ===================== -->
-    <div class="page-wrapper">
+    <main class="page-wrapper">
       <div class="container">
         <!-- Hero -->
-        <div class="hero">
+        <header class="hero">
           <p class="hero-label">Prove yourself</p>
           <h1>The WeaselCode Quiz</h1>
           <p>
             12 questions. 60% to pass. No peeking at the tutorial. The weasel is
             watching.
           </p>
-        </div>
+        </header>
 
         <!-- ===== QUIZ AREA ===== -->
         <!-- This section is shown while the quiz is in progress -->
-        <div id="quiz-area">
+        <section id="quiz-area" aria-label="Quiz questions">
           <!-- Loading state — shown while AJAX fetches questions.json -->
-          <div id="quiz-loading" class="card text-center" style="padding: 48px">
-            <p
-              style="
-                color: var(--text-secondary);
-                font-family: var(--font-heading);
-              "
+          <div id="quiz-loading" class="card text-center quiz-loading-card">
+            <p class="quiz-loading-text"
             >
               Loading questions...
             </p>
           </div>
 
           <!-- Error state — shown if AJAX fails -->
-          <div
-            id="quiz-error"
-            style="display: none"
-            class="card text-center"
-            style="padding: 48px"
-          >
-            <p style="color: var(--danger)">
+          <div id="quiz-error" class="card text-center quiz-loading-card" hidden>
+            <p class="text-danger-msg">
               Could not load questions. Please refresh the page and try again.
             </p>
           </div>
 
           <!-- Questions container — JavaScript injects questions here -->
-          <div id="questions-container" style="display: none"></div>
+          <div id="questions-container" hidden></div>
 
           <!-- Submit button — shown after questions load -->
-          <div id="submit-area" style="display: none; margin-top: 32px">
+          <div id="submit-area" class="submit-area" hidden>
             <button
               id="submit-btn"
-              class="btn btn-primary"
+              class="btn btn-primary submit-btn"
               onclick="submitQuiz()"
-              style="width: 100%; padding: 16px; font-size: 1rem"
             >
               Submit Quiz
             </button>
-            <p
-              id="submit-error"
-              style="
-                display: none;
-                color: var(--danger);
-                margin-top: 12px;
-                font-family: var(--font-heading);
-                font-size: 0.85rem;
-                text-align: center;
-              "
+            <p id="submit-error" class="submit-error-msg" hidden
             >
               Please answer all questions before submitting.
             </p>
           </div>
-        </div>
+        </section>
         <!-- end #quiz-area -->
 
         <!-- ===== RESULTS AREA ===== -->
         <!-- Hidden until quiz is submitted — JavaScript shows this -->
-        <div id="results-area" style="display: none">
+        <section id="results-area" aria-label="Quiz results">
           <!-- Score card -->
           <div class="card mb-4" id="score-card">
-            <div
-              id="result-icon"
-              style="font-size: 3rem; text-align: center; margin-bottom: 16px"
-            ></div>
-            <h2
-              id="result-heading"
-              style="text-align: center; margin-bottom: 8px"
-            ></h2>
-            <p
-              id="result-message"
-              style="
-                text-align: center;
-                color: var(--text-secondary);
-                margin-bottom: 24px;
-              "
+            <div id="result-icon" class="result-icon"></div>
+            <h2 id="result-heading" class="result-heading"></h2>
+            <p id="result-message" class="result-message"
             ></p>
 
             <!-- Score stats -->
@@ -152,38 +115,19 @@
           </div>
 
           <!-- Reward section — only shown on pass, populated by AJAX -->
-          <div id="reward-area" style="display: none" class="card mb-4">
-            <h3 style="text-align: center; margin-bottom: 16px">
-              The weasel rewards you with a dog.
-            </h3>
-            <div
-              id="reward-loading"
-              style="
-                text-align: center;
-                color: var(--text-secondary);
-                font-family: var(--font-heading);
-                font-size: 0.85rem;
-              "
+          <div id="reward-area" class="card mb-4" hidden>
+            <h3 class="reward-heading">The weasel is proud of you. Here is a dog. 🐕</h3>
+            <div id="reward-loading" class="reward-loading"
             >
               Fetching your reward...
             </div>
-            <div id="reward-content" style="text-align: center; display: none">
-              <img
-                id="reward-dog-img"
-                src=""
-                alt="Your reward dog"
-                style="
-                  max-width: 100%;
-                  max-height: 400px;
-                  border-radius: 12px;
-                  border: 2px solid var(--accent);
-                "
-              />
+            <div id="reward-content" class="reward-content" hidden>
+              
             </div>
           </div>
 
           <!-- Retry button -->
-          <div style="text-align: center; margin-bottom: 40px">
+          <div class="retry-wrapper">
             <button class="btn btn-outline" onclick="retryQuiz()">
               Try again
             </button>
@@ -191,23 +135,13 @@
 
           <!-- ===== ATTEMPT HISTORY ===== -->
           <section>
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 16px;
-                flex-wrap: wrap;
-                gap: 12px;
-              "
+            <div class="history-header"
             >
-              <p class="reflection-section-title" style="margin: 0">
-                // Attempt history
+              <p class="reflection-section-title">
+                Attempt history
               </p>
               <button
-                class="btn btn-outline"
-                onclick="clearHistory()"
-                style="font-size: 0.8rem; padding: 6px 14px"
+                class="btn btn-outline btn-sm" onclick="clearHistory()"
               >
                 Clear history
               </button>
@@ -215,12 +149,12 @@
 
             <!-- History entries injected here by JavaScript -->
             <div id="history-container">
-              <p style="color: var(--text-secondary); font-size: 0.9rem">
+              <p class="note-text">
                 No previous attempts.
               </p>
             </div>
           </section>
-        </div>
+        </section>
         <!-- end #results-area -->
       </div>
       <!-- end .container -->

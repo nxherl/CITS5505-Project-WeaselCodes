@@ -8,7 +8,7 @@
 /* ---------- Constants ---------- */
 const PASS_THRESHOLD  = 0.6;   /* 60% — 6 out of 10 correct to pass */
 const STORAGE_KEY     = 'weaselcodes_attempts'; /* localStorage key */
-const DOG_API_URL     = 'https://dog.ceo/api/breeds/image/random';
+const DOG_API_URL     = 'https://dog.ceo/api/breeds/image/random'; /* Dog CEO API */
 const QUESTIONS_FILE  = 'data/questions.json';
 
 /* ---------- State variables ---------- */
@@ -39,14 +39,14 @@ function loadQuestions() {
       questions = shuffleArray(data);
 
       /* Hide the loading message */
-      document.getElementById('quiz-loading').style.display = 'none';
+      document.getElementById('quiz-loading').hidden = true;
 
       /* Render the questions into the DOM */
       renderQuestions();
 
       /* Show the questions container and submit button */
-      document.getElementById('questions-container').style.display = 'block';
-      document.getElementById('submit-area').style.display = 'block';
+      document.getElementById('questions-container').hidden = false;
+      document.getElementById('submit-area').hidden = false;
 
     } else {
       /* Show error if request failed */
@@ -211,7 +211,7 @@ function submitQuiz() {
   if (!allAnswered) {
     /* Show error message */
     const errorMsg = document.getElementById('submit-error');
-    errorMsg.style.display = 'block';
+    errorMsg.hidden = false;
     errorMsg.textContent = 'Please answer all questions before submitting. Unanswered questions are highlighted in red.';
 
     /* Scroll to the first unanswered question */
@@ -243,7 +243,7 @@ function submitQuiz() {
   /* Show the results */
   showResults(correctCount, percentage, passed);
 
-  /* If passed, fetch the dog reward */
+  /* If passed, fetch the Rick and Morty reward */
   if (passed) {
     fetchDogReward();
   }
@@ -259,8 +259,8 @@ function submitQuiz() {
    ============================================================ */
 function showResults(correctCount, percentage, passed) {
   /* Hide the quiz, show the results */
-  document.getElementById('quiz-area').style.display   = 'none';
-  document.getElementById('results-area').style.display = 'block';
+  document.getElementById('quiz-area').hidden = true;
+  document.getElementById('results-area').hidden = false;
 
   /* Set the result icon and heading */
   const icon    = document.getElementById('result-icon');
@@ -292,12 +292,11 @@ function showResults(correctCount, percentage, passed) {
 /* ============================================================
    8. FETCH DOG REWARD VIA AJAX
    Called only when the user passes.
-   Makes an AJAX request to the Dog CEO API and displays
-   a random dog image as the reward.
+   Fetches a random dog image from the Dog CEO API.
    ============================================================ */
 function fetchDogReward() {
   /* Show the reward area */
-  document.getElementById('reward-area').style.display = 'block';
+  document.getElementById('reward-area').hidden = false;
 
   const xhr = new XMLHttpRequest();
   xhr.open('GET', DOG_API_URL);
@@ -305,34 +304,36 @@ function fetchDogReward() {
 
   xhr.onload = function() {
     /* Hide the loading message */
-    document.getElementById('reward-loading').style.display = 'none';
+    document.getElementById('reward-loading').hidden = true;
 
     if (xhr.status === 200) {
       /* Parse the response */
       const data = JSON.parse(xhr.responseText);
 
-      /* Validate the response has the expected field */
+      /* Validate the response has the expected fields */
       if (data && data.status === 'success' && data.message) {
-        /* Set the dog image src */
-        const img = document.getElementById('reward-dog-img');
-        img.src = data.message;
 
-        /* Show the image */
-        document.getElementById('reward-content').style.display = 'block';
+        /* Build the reward content */
+        const rewardContent = document.getElementById('reward-content');
+        rewardContent.innerHTML =
+          '<img src="' + data.message + '" alt="Your reward dog" class="reward-dog-img" />';
+
+        rewardContent.hidden = false;
+
       } else {
         /* Response was not what we expected */
         document.getElementById('reward-loading').textContent = 'Could not load reward. But you still passed!';
-        document.getElementById('reward-loading').style.display = 'block';
+        document.getElementById('reward-loading').hidden = false;
       }
     } else {
       document.getElementById('reward-loading').textContent = 'Could not load reward. But you still passed!';
-      document.getElementById('reward-loading').style.display = 'block';
+      document.getElementById('reward-loading').hidden = false;
     }
   };
 
   xhr.onerror = function() {
     document.getElementById('reward-loading').textContent = 'Could not load reward. But you still passed!';
-    document.getElementById('reward-loading').style.display = 'block';
+    document.getElementById('reward-loading').hidden = false;
   };
 
   xhr.send();
@@ -444,8 +445,8 @@ function retryQuiz() {
    Displays the error state if AJAX loading fails.
    ============================================================ */
 function showQuizError() {
-  document.getElementById('quiz-loading').style.display = 'none';
-  document.getElementById('quiz-error').style.display   = 'block';
+  document.getElementById('quiz-loading').hidden = true;
+  document.getElementById('quiz-error').hidden = false;
 }
 
 /* ============================================================

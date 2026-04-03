@@ -5,7 +5,6 @@
    - Toggle image buttons (HTML tab)
    - Live CSS demo editor
    - Colour changer (JS tab)
-   - Age calculator (JS tab)
    ============================================================ */
 
 /* ============================================================
@@ -43,64 +42,42 @@ document.addEventListener('DOMContentLoaded', function() {
      TOGGLE STRUCTURE OUTPUT IMAGE (HTML tab)
      Shows or hides the rendered HTML structure screenshot.
   ---------------------------------------------------------- */
+  /* ----------------------------------------------------------
+     TOGGLE OUTPUT IMAGE — shared helper function
+     Uses classList.contains to check visibility properly,
+     avoiding the double-click bug caused by checking
+     img.style.display (which only reads inline styles).
+  ---------------------------------------------------------- */
+  function toggleOutput(imgId, btnId) {
+    const img = document.getElementById(imgId);
+    const btn = document.getElementById(btnId);
+
+    /* Check if the image has the hidden class (set by CSS) */
+    if (img.classList.contains('toggle-img-visible')) {
+      /* Currently visible — hide it */
+      img.classList.remove('toggle-img-visible');
+      btn.textContent = 'Show output';
+    } else {
+      /* Currently hidden — show it */
+      img.classList.add('toggle-img-visible');
+      btn.textContent = 'Hide output';
+    }
+  }
+
   window.toggleStructureOutput = function() {
-    const img = document.getElementById('structure-output-img');
-    const btn = document.getElementById('structure-toggle-btn');
-    if (img.style.display === 'none') {
-      img.style.display = 'block';
-      btn.textContent = 'Hide rendered output';
-    } else {
-      img.style.display = 'none';
-      btn.textContent = 'Show rendered output';
-    }
+    toggleOutput('structure-output-img', 'structure-toggle-btn');
   };
 
-  /* ----------------------------------------------------------
-     TOGGLE ELEMENTS OUTPUT IMAGE (HTML tab)
-     Shows or hides the common HTML elements screenshot.
-  ---------------------------------------------------------- */
   window.toggleElementsOutput = function() {
-    const img = document.getElementById('elements-output-img');
-    const btn = document.getElementById('elements-toggle-btn');
-    if (img.style.display === 'none') {
-      img.style.display = 'block';
-      btn.textContent = 'Hide rendered output';
-    } else {
-      img.style.display = 'none';
-      btn.textContent = 'Show rendered output';
-    }
+    toggleOutput('elements-output-img', 'elements-toggle-btn');
   };
 
-  /* ----------------------------------------------------------
-     TOGGLE FORM OUTPUT IMAGE (HTML tab)
-     Shows or hides the rendered HTML form screenshot.
-  ---------------------------------------------------------- */
   window.toggleFormOutput = function() {
-    const img = document.getElementById('form-output-img');
-    const btn = document.getElementById('form-toggle-btn');
-    if (img.style.display === 'none') {
-      img.style.display = 'block';
-      btn.textContent = 'Hide rendered output';
-    } else {
-      img.style.display = 'none';
-      btn.textContent = 'Show rendered output';
-    }
+    toggleOutput('form-output-img', 'form-toggle-btn');
   };
 
-  /* ----------------------------------------------------------
-     TOGGLE TABLE OUTPUT IMAGE (HTML tab)
-     Shows or hides the rendered HTML table screenshot.
-  ---------------------------------------------------------- */
   window.toggleTableOutput = function() {
-    const img = document.getElementById('table-output-img');
-    const btn = document.getElementById('table-toggle-btn');
-    if (img.style.display === 'none') {
-      img.style.display = 'block';
-      btn.textContent = 'Hide rendered output';
-    } else {
-      img.style.display = 'none';
-      btn.textContent = 'Show rendered output';
-    }
+    toggleOutput('table-output-img', 'table-toggle-btn');
   };
 
   /* ----------------------------------------------------------
@@ -162,54 +139,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
-  /* ----------------------------------------------------------
-     AGE CALCULATOR (JS tab)
-     Calculates the user's age in years and total days
-     based on the birthday they enter.
-  ---------------------------------------------------------- */
-  window.calculateAge = function() {
-    const input     = document.getElementById('birthday-input');
-    const resultBox = document.getElementById('age-result');
-    const errorMsg  = document.getElementById('age-error');
 
-    if (!input || !resultBox || !errorMsg) return;
-
-    /* Hide previous results */
-    resultBox.style.display = 'none';
-    errorMsg.style.display  = 'none';
-
-    /* Check the user entered a date */
-    if (!input.value) {
-      errorMsg.textContent   = 'Please enter your date of birth first.';
-      errorMsg.style.display = 'block';
-      return;
-    }
-
-    const today    = new Date();
-    const birthday = new Date(input.value);
-
-    /* Reject future dates */
-    if (birthday > today) {
-      errorMsg.textContent   = 'That date is in the future. Are you a time traveller?';
-      errorMsg.style.display = 'block';
-      return;
-    }
-
-    /* Calculate years */
-    let years = today.getFullYear() - birthday.getFullYear();
-    const monthDiff = today.getMonth() - birthday.getMonth();
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthday.getDate())) {
-      years--;
-    }
-
-    /* Calculate total days */
-    const msPerDay  = 1000 * 60 * 60 * 24;
-    const totalDays = Math.floor((today - birthday) / msPerDay);
-
-    /* Display results */
-    document.getElementById('age-years').textContent = 'You are ' + years + ' years old.';
-    document.getElementById('age-days').textContent  = 'That is ' + totalDays.toLocaleString() + ' days of being alive.';
-    resultBox.style.display = 'block';
-  };
 
 }); /* end DOMContentLoaded */
