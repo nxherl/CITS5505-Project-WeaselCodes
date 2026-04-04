@@ -250,3 +250,7 @@
   .cv-item-header { flex-direction: column; }
   .github-repo-header { flex-direction: column; align-items: flex-start; }
 }
+
+/* ---------- CV page — extracted from inline styles ---------- */
+.github-loading-text { color: var(--text-secondary); font-family: var(--font-heading); font-size: 0.85rem; }
+.github-error-msg    { color: var(--danger); font-size: 0.85rem; }

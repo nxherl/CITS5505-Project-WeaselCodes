@@ -5,6 +5,8 @@
    - Toggle image buttons (HTML tab)
    - Live CSS demo editor
    - Colour changer (JS tab)
+   - GitHub activity feed (CV page)
+   - Skill filter (CV page)
    ============================================================ */
 
 /* ============================================================
@@ -140,5 +142,76 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
 
+
+
+  /* ----------------------------------------------------------
+     GITHUB ACTIVITY FEED (CV page)
+     AJAX request to GitHub public API to fetch latest repos
+     for user nxherl and render them as cards on the page.
+  ---------------------------------------------------------- */
+  function loadGitHubRepos() {
+    const apiUrl = 'https://api.github.com/users/nxherl/repos?sort=updated&per_page=6';
+    const xhr    = new XMLHttpRequest();
+
+    xhr.open('GET', apiUrl);
+    xhr.setRequestHeader('Accept', 'application/vnd.github.v3+json');
+
+    xhr.onload = function() {
+      document.getElementById('github-loading').hidden = true;
+
+      if (xhr.status === 200) {
+        const repos     = JSON.parse(xhr.responseText);
+        const container = document.getElementById('github-repos');
+
+        repos.forEach(function(repo) {
+          const card = document.createElement('div');
+          card.className = 'github-repo-card';
+          card.innerHTML =
+            '<div class="github-repo-header">' +
+              '<a href="' + repo.html_url + '" target="_blank" class="github-repo-name">' + repo.name + '</a>' +
+              '<span class="github-repo-language">' + (repo.language || 'N/A') + '</span>' +
+            '</div>' +
+            '<p class="github-repo-desc">' + (repo.description || 'No description provided.') + '</p>' +
+            '<div class="github-repo-meta">' +
+              '<span>&#9733; ' + repo.stargazers_count + '</span>' +
+              '<span>Updated: ' + new Date(repo.updated_at).toLocaleDateString() + '</span>' +
+            '</div>';
+          container.appendChild(card);
+        });
+
+      } else {
+        const err = document.getElementById('github-error');
+        if (err) err.hidden = false;
+      }
+    };
+
+    xhr.onerror = function() {
+      document.getElementById('github-loading').hidden = true;
+      const err = document.getElementById('github-error');
+      if (err) err.hidden = false;
+    };
+
+    xhr.send();
+  }
+
+  /* ----------------------------------------------------------
+     SKILL FILTER (CV page)
+     Filters skill tags by category when filter buttons clicked.
+  ---------------------------------------------------------- */
+  window.filterSkills = function(category) {
+    const tags = document.querySelectorAll('#skill-filter-area .skill-tag');
+    tags.forEach(function(tag) {
+      if (category === 'all' || tag.getAttribute('data-category') === category) {
+        tag.style.display = 'inline-block';
+      } else {
+        tag.style.display = 'none';
+      }
+    });
+  };
+
+  /* Run GitHub feed if on the CV page */
+  if (document.getElementById('github-repos')) {
+    loadGitHubRepos();
+  }
 
 }); /* end DOMContentLoaded */
