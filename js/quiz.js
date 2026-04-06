@@ -8,7 +8,7 @@
 /* ---------- Constants ---------- */
 const PASS_THRESHOLD  = 0.6;   /* 60% — 6 out of 10 correct to pass */
 const STORAGE_KEY     = 'weaselcodes_attempts'; /* localStorage key */
-const DOG_API_URL     = 'https://dog.ceo/api/breeds/image/random'; /* Dog CEO API */
+const BADGE_API_URL   = 'https://img.shields.io/badge/WeaselCodes-PASSED-%2300BFFF?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyTDkuMTkgOC42M0wyIDkuMjRsNS40NiA0Ljk3TDUuODIgMjFMMTIgMTcuMjdsMTYuMTggMy43M0wxNi41NCAxNC4yMUwyMiA5LjI0bC03LjE5LS42MXoiLz48L3N2Zz4='; /* Shields.io badge API */
 const QUESTIONS_FILE  = 'data/questions.json';
 
 /* ---------- State variables ---------- */
@@ -212,7 +212,7 @@ function submitQuiz() {
     /* Show error message */
     const errorMsg = document.getElementById('submit-error');
     errorMsg.hidden = false;
-    errorMsg.textContent = 'Please answer all questions before submitting.';
+    errorMsg.textContent = 'Please answer all questions before submitting. Unanswered questions are highlighted in red.';
 
     /* Scroll to the first unanswered question */
     const card = document.getElementById('question-' + firstUnanswered);
@@ -245,7 +245,7 @@ function submitQuiz() {
 
   /* If passed, fetch the Rick and Morty reward */
   if (passed) {
-    fetchDogReward();
+    fetchBadgeReward();
   }
 
   /* Scroll to results */
@@ -268,10 +268,10 @@ function showResults(correctCount, percentage, passed) {
   const message = document.getElementById('result-message');
 
   if (passed) {
-    icon.textContent    = '🐕';
+    icon.textContent    = '🏅';
     heading.textContent = 'You passed! The weasel is proud.';
     heading.style.color = 'var(--success)';
-    message.textContent = 'Excellent work. You have proven yourself worthy of the weasel code. Here is a dog.';
+    message.textContent = 'Excellent work. You have proven yourself worthy of the weasel code. Your badge has been issued.';
   } else {
     icon.textContent    = '🐾';
     heading.textContent = 'Not quite. The weasel is disappointed.';
@@ -290,49 +290,52 @@ function showResults(correctCount, percentage, passed) {
 }
 
 /* ============================================================
-   8. FETCH DOG REWARD VIA AJAX
+   8. FETCH BADGE REWARD VIA AJAX
    Called only when the user passes.
-   Fetches a random dog image from the Dog CEO API.
+   Fetches a dynamic SVG badge from the Shields.io public API
+   and displays it as the reward.
    ============================================================ */
-function fetchDogReward() {
+function fetchBadgeReward() {
   /* Show the reward area */
   document.getElementById('reward-area').hidden = false;
 
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', DOG_API_URL);
-  xhr.setRequestHeader('Accept', 'application/json');
+
+  /* Open the request to the Shields.io API */
+  xhr.open('GET', BADGE_API_URL);
+
+  /* Tell the API we accept SVG */
+  xhr.setRequestHeader('Accept', 'image/svg+xml');
 
   xhr.onload = function() {
     /* Hide the loading message */
     document.getElementById('reward-loading').hidden = true;
 
     if (xhr.status === 200) {
-      /* Parse the response */
-      const data = JSON.parse(xhr.responseText);
-
-      /* Validate the response has the expected fields */
-      if (data && data.status === 'success' && data.message) {
+      /* Validate the response is an SVG */
+      if (xhr.responseText && xhr.responseText.indexOf('<svg') !== -1) {
 
         /* Build the reward content */
         const rewardContent = document.getElementById('reward-content');
         rewardContent.innerHTML =
-          '<img src="' + data.message + '" alt="Your reward dog" class="reward-dog-img" />';
+          '<p class="reward-congrats">Congratulations! You have earned your badge.</p>' +
+          '<img src="' + BADGE_API_URL + '" alt="WeaselCodes PASSED badge" class="reward-badge-img" />' +
+          '<p class="reward-sub">Score recorded. The weasel is proud.</p>';
 
         rewardContent.hidden = false;
 
       } else {
-        /* Response was not what we expected */
-        document.getElementById('reward-loading').textContent = 'Could not load reward. But you still passed!';
+        document.getElementById('reward-loading').textContent = 'Could not load badge. But you still passed!';
         document.getElementById('reward-loading').hidden = false;
       }
     } else {
-      document.getElementById('reward-loading').textContent = 'Could not load reward. But you still passed!';
+      document.getElementById('reward-loading').textContent = 'Could not load badge. But you still passed!';
       document.getElementById('reward-loading').hidden = false;
     }
   };
 
   xhr.onerror = function() {
-    document.getElementById('reward-loading').textContent = 'Could not load reward. But you still passed!';
+    document.getElementById('reward-loading').textContent = 'Could not load badge. But you still passed!';
     document.getElementById('reward-loading').hidden = false;
   };
 

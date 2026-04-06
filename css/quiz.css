@@ -198,3 +198,26 @@
   border: 2px solid var(--accent);
   margin-top: 16px;
 }
+
+/* Badge reward styles */
+.reward-badge-img {
+  display: block;
+  margin: 16px auto;
+  height: 40px;
+}
+
+.reward-congrats {
+  color: var(--success);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.reward-sub {
+  color: var(--text-secondary);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 8px;
+}
