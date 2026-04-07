@@ -145,6 +145,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   /* ----------------------------------------------------------
+     CSS SANDBOX (CSS syntax card)
+     Textarea is empty in HTML. Default code set here via JS
+     so the browser never tries to parse it as HTML tags.
+     runSandbox() writes textarea content into iframe srcdoc.
+  ---------------------------------------------------------- */
+  var sandboxInput  = document.getElementById('css-sandbox-input');
+  var sandboxOutput = document.getElementById('css-sandbox-output');
+
+  if (sandboxInput && sandboxOutput) {
+
+    /* Default code loaded into textarea on page load */
+    sandboxInput.value =
+      '<!DOCTYPE html>\n' +
+      '<html>\n' +
+      '<head>\n' +
+      '<style>\n' +
+      'body { font-family: Arial, sans-serif; padding: 20px; }\n' +
+      'h1 { color: #00BFFF; font-size: 2rem; text-align: center; }\n' +
+      'p  { color: #333; line-height: 1.7; }\n' +
+      '</style>\n' +
+      '</head>\n' +
+      '<body>\n' +
+      '  <h1>CSS is fun!</h1>\n' +
+      '  <p>Edit the CSS above and click Run.</p>\n' +
+      '  <p>Try changing color or font-size!</p>\n' +
+      '</body>\n' +
+      '</html>';
+
+    /* Run button — write textarea into iframe */
+    window.runSandbox = function() {
+      sandboxOutput.srcdoc = sandboxInput.value;
+    };
+
+    /* Show default output on load */
+    window.runSandbox();
+  }
+
+  /* ----------------------------------------------------------
      GITHUB ACTIVITY FEED (CV page)
      AJAX request to GitHub public API to fetch latest repos
      for user nxherl and render them as cards on the page.

@@ -433,79 +433,7 @@
               alt="juxtaposition of HTML and CSS represented by cats"
               class="demo-img"
             />
-            <!-- Live CSS Demo -->
-
-            <h3>Ready to see magic?</h3>
             <p>
-              This live CSS editor allows you to see the effects of CSS changes
-              in real time.
-              <br />
-              Adjust the background colour, text colour, font size, and border
-              radius using the controls below.
-              <br />
-            </p>
-
-            <!-- Controls -->
-            <div
-              class="demo-controls"
-            >
-              <label class="demo-label">
-                Background colour
-                <input
-                  type="color"
-                  id="demo-bg"
-                  value="#1a2235"
-                  class="demo-color-picker"
-                />
-              </label>
-
-              <label class="demo-label">
-                Text colour
-                <input
-                  type="color"
-                  id="demo-color"
-                  value="#00BFFF"
-                  class="demo-color-picker"
-                />
-              </label>
-
-              <label class="demo-label">
-                Font size: <span id="demo-size-label">20px</span>
-                <input
-                  type="range"
-                  id="demo-size"
-                  min="12"
-                  max="48"
-                  value="20"
-                  class="demo-range"
-                />
-              </label>
-
-              <label class="demo-label">
-                Border radius: <span id="demo-radius-label">8px</span>
-                <input
-                  type="range"
-                  id="demo-radius"
-                  min="0"
-                  max="50"
-                  value="8"
-                  class="demo-range"
-                />
-              </label>
-            </div>
-
-            <!-- The live preview box -->
-            <div
-              id="css-demo-box"
-              class="css-demo-preview"
-            >
-              One stylesheet to rule them all.
-            </div>
-
-            <!-- JS that powers the demo -->
-
-            <p>
-              <br />
               Fellas, today is the day we give CSS the respect it deserves.
               Let's dive into the world of selectors, properties, and the box
               model to see how CSS turns plain HTML into a work of art.
@@ -519,6 +447,9 @@
               <em>what</em> to style; the declarations say <em>how</em> to style
               it.
             </p>
+
+            <img src="assets/img/csssyntax.jpg" alt="CSS syntax diagram" style="max-width: 40%; height: auto; margin-bottom: 16px;">
+
             <pre><code><span class="cmt">/* selector { property: value; } */</span>
 
 <span class="sel">h1</span> {
@@ -532,8 +463,56 @@
   <span class="prop">line-height</span>: <span class="val">1.7</span>;
   <span class="prop">margin-bottom</span>: <span class="val">1rem</span>;
 }</code></pre>
+          <p class="hint-text" style="margin-top:16px;">Try it yourself! Edit the code and click Run.</p>
+<div class="sandbox-wrapper">
+  <textarea id="css-sandbox-input" class="sandbox-textarea" spellcheck="false"></textarea>
+  <div class="sandbox-btn-row">
+    <button class="btn btn-primary" onclick="runSandbox()">Run</button>
+  </div>
+  <iframe id="css-sandbox-output" class="sandbox-iframe" title="CSS sandbox output"></iframe>
+</div>
           </div>
+<!-- CSS: Inline, Internal, External -->
+<div class="card mb-4">
+  <h3>Ways to apply CSS</h3>
+  <p>
+    There are three ways to add CSS to an HTML page. All three produce
+    the same visual result, but they differ in where the styles live and
+    how maintainable they are. External CSS is always the preferred
+    approach for real projects.
+  </p>
 
+  <p><strong>Inline CSS:</strong>  written directly on the HTML element
+  using the <code>style</code> attribute. It only affects that one element
+  and is the hardest to maintain. Avoid it except for quick tests.</p>
+  <pre><code><span class="tag">&lt;p</span> <span class="atr">style</span>=<span class="val">"color: red; font-size: 18px;"</span><span class="tag">&gt;</span>This text is red.<span class="tag">&lt;/p&gt;</span></code></pre>
+
+  <p><strong>Internal CSS:</strong>  written inside a <code>&lt;style&gt;</code>
+  tag in the <code>&lt;head&gt;</code> of the HTML file. It applies to the
+  whole page but only that page. Useful for single-page projects or quick
+  prototypes.</p>
+  <pre><code><span class="tag">&lt;head&gt;</span>
+  <span class="tag">&lt;style&gt;</span>
+    <span class="sel">p</span> {
+      <span class="prop">color</span>: <span class="val">red</span>;
+      <span class="prop">font-size</span>: <span class="val">18px</span>;
+    }
+  <span class="tag">&lt;/style&gt;</span>
+<span class="tag">&lt;/head&gt;</span></code></pre>
+
+  <p><strong>External CSS:</strong>  written in a separate <code>.css</code>
+  file and linked to the HTML using a <code>&lt;link&gt;</code> tag. One
+  stylesheet can control multiple pages. This is the industry standard
+  approach and what WeaselCodes uses.</p>
+  <pre><code><span class="cmt">&lt;!-- In the &lt;head&gt; of your HTML --&gt;</span>
+<span class="tag">&lt;link</span> <span class="atr">rel</span>=<span class="val">"stylesheet"</span> <span class="atr">href</span>=<span class="val">"css/style.css"</span> <span class="tag">/&gt;</span></code></pre>
+
+  <p class="note-text">
+    The order matters: external CSS loads first, then internal, then inline.
+    Inline styles always win because they are most specific. This is why
+    inline styles are hard to override and should be avoided.
+  </p>
+</div>
           <div class="card mb-4">
             <h3>Selectors</h3>
             <p>
@@ -897,7 +876,44 @@ heading.style.color = <span class="str">"#00BFFF"</span>;
 <span class="cmt">// Find elements by class name</span>
 <span class="kw">const</span> cards = document.querySelectorAll(<span class="str">".card"</span>);</code></pre>
           </div>
+         <!-- DOM Manipulation Demo Card -->
+          <div class="card mb-4">
+            <h3>Try it yourself! DOM manipulation in action</h3>
+            <p>
+              This is JavaScript doing the work. Every time you adjust a
+              control below, an <code>addEventListener</code> fires and
+              JavaScript directly manipulates the style of the box using
+              <code>element.style</code> — no page reload, no CSS file
+              edited. That is the DOM being changed in real time.
+            </p>
 
+            <!-- Controls -->
+            <div class="demo-controls">
+              <label class="demo-label">
+                Background colour
+                <input type="color" id="demo-bg" value="#1a2235" class="demo-color-picker" />
+              </label>
+              <label class="demo-label">
+                Text colour
+                <input type="color" id="demo-color" value="#00BFFF" class="demo-color-picker" />
+              </label>
+              <label class="demo-label">
+                Font size: <span id="demo-size-label">20px</span>
+                <input type="range" id="demo-size" min="12" max="48" value="20" class="demo-range" />
+              </label>
+              <label class="demo-label">
+                Border radius: <span id="demo-radius-label">8px</span>
+                <input type="range" id="demo-radius" min="0" max="50" value="8" class="demo-range" />
+              </label>
+            </div>
+
+            <!-- Live preview box — styled by JS -->
+            <div id="css-demo-box" class="css-demo-preview">
+              One stylesheet to rule them all.
+            </div>
+          </div>
+
+ 
           <div class="card mb-4">
             <h3>Events</h3>
             <p>
@@ -1060,7 +1076,7 @@ $(document).ready(<span class="kw">function</span>() {
             For it is the only way to truly know if you have what it takes to be
             a master weasel coder.
           </p>
-          <a href="quiz.html" class="btn btn-primary">Take the quiz &rarr;</a>
+          <a href="quiz.html" class="btn btn-primary">Take the quiz</a>
         </section>
       </div>
       <!-- end .container -->

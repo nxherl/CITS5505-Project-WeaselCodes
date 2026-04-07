@@ -741,3 +741,61 @@ pre code {
   border: 1px solid var(--border);
 }
 
+
+/* ---------- CSS Sandbox ---------- */
+.sandbox-wrapper {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  height: 300px;
+}
+.sandbox-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.sandbox-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.sandbox-label {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+.sandbox-run-btn {
+  padding: 5px 14px;
+  font-size: 0.8rem;
+}
+.sandbox-textarea {
+  flex: 1;
+  background: var(--code-bg);
+  color: #c9d1d9;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  resize: none;
+  outline: none;
+  line-height: 1.6;
+  width: 100%;
+}
+.sandbox-textarea:focus { border-color: var(--accent); }
+.sandbox-iframe {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: #fff;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .sandbox-wrapper { flex-direction: column; height: auto; }
+  .sandbox-textarea { height: 180px; }
+  .sandbox-iframe   { height: 180px; }
+}
