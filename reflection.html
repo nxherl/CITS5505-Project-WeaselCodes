@@ -54,10 +54,10 @@
               development guidance. GitHub Copilot was used within Visual Studio
               Code for inline code suggestions and debugging assistance. Gemini
               (Google) was used specifically for generating the AI mascot image
-              used across the site.  Every AI output was reviewed, tested, and modified before being
-              incorporated into the project. The use cases documented below
-              reflect real interactions that shaped specific parts of this
-              application.
+              used across the site. Every AI output was reviewed, tested, and
+              modified before being incorporated into the project. The use cases
+              documented below reflect real interactions that shaped specific
+              parts of this application.
             </p>
           </div>
         </section>
@@ -114,77 +114,81 @@
               Claude Sonnet 4.6
             </h3>
             <p>
+              Prompt used:<br />
               Can you explain how AJAX works in JavaScript? I need to understand
               it well enough to implement it myself for loading quiz questions
               from a local JSON file and fetching data from a public API.
-            <br>
-                What the AI produced:<br>
+              <br /><br />
+              What the AI produced:<br />
 
-                Claude explained that AJAX allows the browser to fetch data from
-                a server without reloading the page, and walked through how
-                <code>XMLHttpRequest</code> works step by step: creating the
-                object, opening a GET request, setting request headers, defining
-                the <code>onload</code> callback, and sending the request. It
-                also explained how to parse a JSON response using
-                <code>JSON.parse()</code>
-                and demonstrated a basic example with error handling.
-              <br><br>
+              Claude explained that AJAX allows the browser to fetch data from a
+              server without reloading the page, and walked through how
+              <code>XMLHttpRequest</code> works step by step: creating the
+              object, opening a GET request, setting request headers, defining
+              the <code>onload</code> callback, and sending the request. It also
+              explained how to parse a JSON response using
+              <code>JSON.parse()</code>
+              and demonstrated a basic example with error handling.
+              <br /><br />
 
+              Changes made: <br />
 
- Changes made: <br>
-            
-                The explanation was used as a learning reference rather than
-                copied directly. The actual AJAX implementations in
-                <code>quiz.js</code> for loading <code>questions.json</code>, in
-                <code>main.js</code> for the GitHub activity feed, and for the
-                Dog CEO API reward were all written independently after
-                understanding the concept. The error handling pattern: checking
-                <code>xhr.status === 200</code> and handling
-                <code>xhr.onerror</code> separately was added based on
-                thinking about what could go wrong in production.
-              </p>
-            </div>
+              The explanation was used as a learning reference rather than
+              copied directly. The actual AJAX implementations in
+              <code>quiz.js</code> for loading <code>questions.json</code>, in
+              <code>main.js</code> for the GitHub activity feed, and for the Dog
+              CEO API reward were all written independently after understanding
+              the concept. The error handling pattern: checking
+              <code>xhr.status === 200</code> and handling
+              <code>xhr.onerror</code> separately was added based on thinking
+              about what could go wrong in production.
+            </p>
           </div>
 
           <!-- Use Case 3 -->
           <div class="card mb-4">
-<h2>Use case 3</h2>
-              <h3>Debugging assistance <br>
-                GitHub Copilot</h3>
-<p>Prompt used:<br>
-              
-                My CSS stylesheet is not being applied to the page. The styles
-                are not loading even though the link tag looks correct. What is
-                the cause to this?
+            <h2>Use case 3</h2>
+            <h3>
+              Debugging assistance <br />
+              GitHub Copilot
+            </h3>
+            <p>
+              Prompt used:<br />
 
-<br>What the AI produced:
-                GitHub Copilot suggested several possible code-related causes: a
-                typo in the <code>href</code> attribute of the
-                <code>&lt;link&gt;</code> tag, incorrect CSS selector syntax,
-                specificity conflicts with Bootstrap overriding custom styles,
-                or a missing closing brace in the CSS file causing rules to be
-                ignored. It proceeded to suggest corrections to the link tag
-                syntax and offered to rewrite several CSS rules.
-<br><br>Changes made:<br>
-              
-                None of the suggested code changes were applied because the
-                problem was not a code issue at all. After checking the file
-                system, the stylesheet had been saved in the project root folder
-                instead of the
-                <code>css/</code> subfolder. The path
-                <code>href="css/style.css"</code>
-                was correct — the file was simply in the wrong location. Moving
-                the file resolved the issue immediately. The AI assumed a code
-                problem when the actual cause was environmental.
-              </p>
-            </div>
+              My CSS stylesheet is not being applied to the page. The styles are
+              not loading even though the link tag looks correct. What is the
+              cause to this?
+
+              <br />What the AI produced: GitHub Copilot suggested several
+              possible code-related causes: a typo in the
+              <code>href</code> attribute of the <code>&lt;link&gt;</code> tag,
+              incorrect CSS selector syntax, specificity conflicts with
+              Bootstrap overriding custom styles, or a missing closing brace in
+              the CSS file causing rules to be ignored. It proceeded to suggest
+              corrections to the link tag syntax and offered to rewrite several
+              CSS rules. <br /><br />Changes made:<br />
+
+              None of the suggested code changes were applied because the
+              problem was not a code issue at all. After checking the file
+              system, the stylesheet had been saved in the project root folder
+              instead of the
+              <code>css/</code> subfolder. The path
+              <code>href="css/style.css"</code>
+              was correct — the file was simply in the wrong location. Moving
+              the file resolved the issue immediately. The AI assumed a code
+              problem when the actual cause was environmental.
+            </p>
           </div>
         </section>
 
         <!-- ===== SECTION 3: CRITICAL EVALUATION ===== -->
-        
+        <section
+          class="reflection-section mb-4"
+          aria-label="Critical evaluation"
+        >
           <div class="card mb-4">
-            <h2>Critical Evaluation</h2><br>
+            <h2>Critical Evaluation</h2>
+            <br />
             <h3>Where the AI got it wrong</h3>
             <p>
               During development of the tutorial page, Claude was asked to
@@ -211,14 +215,15 @@
   <span class="tag">&lt;pre&gt;&lt;code&gt;</span>...snippet...<span class="tag">&lt;/code&gt;&lt;/pre&gt;</span> <span class="cmt">&lt;!-- inside the card --&gt;</span>
 <span class="tag">&lt;/div&gt;</span></code></pre>
             <p>
-              The error was very subtle. The code was syntactically valid HTML so no
-              validator would catch it, and it looked reasonable when reading
-              line by line. It was only detected by visually testing the page in
-              the browser. This showed that AI-generated HTML can be
+              The error was very subtle. The code was syntactically valid HTML
+              so no validator would catch it, and it looked reasonable when
+              reading line by line. It was only detected by visually testing the
+              page in the browser. This showed that AI-generated HTML can be
               structurally correct but semantically wrong in ways that only
               become visible at runtime.
             </p>
           </div>
+        </section>
       </div>
       <!-- end .container -->
     </main>

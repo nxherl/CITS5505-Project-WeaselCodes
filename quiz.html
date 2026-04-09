@@ -54,14 +54,15 @@
         <section id="quiz-area" aria-label="Quiz questions">
           <!-- Loading state — shown while AJAX fetches questions.json -->
           <div id="quiz-loading" class="card text-center quiz-loading-card">
-            <p class="quiz-loading-text"
-            >
-              Loading questions...
-            </p>
+            <p class="quiz-loading-text">Loading questions...</p>
           </div>
 
           <!-- Error state — shown if AJAX fails -->
-          <div id="quiz-error" class="card text-center quiz-loading-card" hidden>
+          <div
+            id="quiz-error"
+            class="card text-center quiz-loading-card"
+            hidden
+          >
             <p class="text-danger-msg">
               Could not load questions. Please refresh the page and try again.
             </p>
@@ -79,8 +80,7 @@
             >
               Submit Quiz
             </button>
-            <p id="submit-error" class="submit-error-msg" hidden
-            >
+            <p id="submit-error" class="submit-error-msg" hidden>
               Please answer all questions before submitting.
             </p>
           </div>
@@ -93,9 +93,12 @@
           <!-- Score card -->
           <div class="card mb-4" id="score-card">
             <div id="result-icon" class="result-icon"></div>
-            <h2 id="result-heading" class="result-heading"></h2>
-            <p id="result-message" class="result-message"
-            ></p>
+            <h2
+              id="result-heading"
+              class="result-heading"
+              aria-live="polite"
+            ></h2>
+            <p id="result-message" class="result-message"></p>
 
             <!-- Score stats -->
             <div class="quiz-stats-grid">
@@ -117,13 +120,10 @@
           <!-- Reward section — only shown on pass, populated by AJAX -->
           <div id="reward-area" class="card mb-4" hidden>
             <h3 class="reward-heading">🏅 Your badge has been issued.</h3>
-            <div id="reward-loading" class="reward-loading"
-            >
+            <div id="reward-loading" class="reward-loading">
               Fetching your reward...
             </div>
-            <div id="reward-content" class="reward-content" hidden>
-              
-            </div>
+            <div id="reward-content" class="reward-content" hidden></div>
           </div>
 
           <!-- Retry button -->
@@ -134,31 +134,24 @@
           </div>
 
           <!-- ===== ATTEMPT HISTORY ===== -->
-          <section>
-            <div class="history-header"
-            >
-              <p class="reflection-section-title">
-                // Attempt history
-              </p>
-              <button
-                class="btn btn-outline btn-sm" onclick="clearHistory()"
-              >
+          <div>
+            <div class="history-header">
+              <p class="reflection-section-title">// Attempt history</p>
+              <button class="btn btn-outline btn-sm" onclick="clearHistory()">
                 Clear history
               </button>
             </div>
 
             <!-- History entries injected here by JavaScript -->
             <div id="history-container">
-              <p class="note-text">
-                No previous attempts.
-              </p>
+              <p class="note-text">No previous attempts.</p>
             </div>
-          </section>
+          </div>
         </section>
         <!-- end #results-area -->
       </div>
       <!-- end .container -->
-    </div>
+    </main>
     <!-- end .page-wrapper -->
 
     <!-- ===================== FOOTER ===================== -->
