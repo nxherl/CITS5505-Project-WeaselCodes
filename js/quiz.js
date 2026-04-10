@@ -8,7 +8,7 @@
 /* ---------- Constants ---------- */
 const PASS_THRESHOLD  = 0.6;   /* 60% — 6 out of 10 correct to pass */
 const STORAGE_KEY     = 'weaselcodes_attempts'; /* localStorage key */
-const BADGE_API_URL   = 'https://img.shields.io/badge/WeaselCodes-PASSED-%2300BFFF?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyTDkuMTkgOC42M0wyIDkuMjRsNS40NiA0Ljk3TDUuODIgMjFMMTIgMTcuMjdsMTYuMTggMy43M0wxNi41NCAxNC4yMUwyMiA5LjI0bC03LjE5LS42MXoiLz48L3N2Zz4='; /* Shields.io badge API */
+const WEASEL_API_URL  = 'https://en.wikipedia.org/api/rest_v1/page/summary/Weasel'; /* Wikipedia Weasel API */
 const QUESTIONS_FILE  = 'data/questions.json';
 
 /* ---------- State variables ---------- */
@@ -245,7 +245,7 @@ function submitQuiz() {
 
   /* If passed, fetch the Rick and Morty reward */
   if (passed) {
-    fetchBadgeReward();
+    fetchWeaselReward();
   }
 
   /* Scroll to results */
@@ -268,10 +268,10 @@ function showResults(correctCount, percentage, passed) {
   const message = document.getElementById('result-message');
 
   if (passed) {
-    icon.textContent    = '🏅';
-    heading.textContent = 'You passed! The weasel is proud.';
+    icon.textContent    = '🦡';
+    heading.textContent = 'You passed! The weasel reveals its secrets.';
     heading.style.color = 'var(--success)';
-    message.textContent = 'Excellent work. You have proven yourself worthy of the weasel code. Your badge has been issued.';
+    message.textContent = 'You have proven yourself worthy of the weasel code. The weasel has wisdom to share.';
   } else {
     icon.textContent    = '🐾';
     heading.textContent = 'Not quite. The weasel is disappointed.';
@@ -290,52 +290,54 @@ function showResults(correctCount, percentage, passed) {
 }
 
 /* ============================================================
-   8. FETCH BADGE REWARD VIA AJAX
+   8. FETCH WEASEL REWARD VIA AJAX
    Called only when the user passes.
-   Fetches a dynamic SVG badge from the Shields.io public API
-   and displays it as the reward.
+   Fetches a weasel summary and thumbnail image from the
+   Wikipedia public REST API and displays it as the reward.
    ============================================================ */
-function fetchBadgeReward() {
+function fetchWeaselReward() {
   /* Show the reward area */
   document.getElementById('reward-area').hidden = false;
 
   const xhr = new XMLHttpRequest();
 
-  /* Open the request to the Shields.io API */
-  xhr.open('GET', BADGE_API_URL);
+  /* Open the request to the Wikipedia REST API */
+  xhr.open('GET', WEASEL_API_URL);
 
-  /* Tell the API we accept SVG */
-  xhr.setRequestHeader('Accept', 'image/svg+xml');
+  /* Tell the API we want JSON */
+  xhr.setRequestHeader('Accept', 'application/json');
 
   xhr.onload = function() {
     /* Hide the loading message */
     document.getElementById('reward-loading').hidden = true;
 
     if (xhr.status === 200) {
-      /* Validate the response is an SVG */
-      if (xhr.responseText && xhr.responseText.indexOf('<svg') !== -1) {
+      /* Parse the JSON response */
+      const data = JSON.parse(xhr.responseText);
+
+      /* Validate the response has the expected fields */
+      if (data && data.extract && data.thumbnail && data.thumbnail.source) {
 
         /* Build the reward content */
         const rewardContent = document.getElementById('reward-content');
         rewardContent.innerHTML =
-          '<p class="reward-congrats">Congratulations! You have earned your badge.</p>' +
-          '<img src="' + BADGE_API_URL + '" alt="WeaselCodes PASSED badge" class="reward-badge-img" />' +
-          '<p class="reward-sub">Score recorded. The weasel is proud.</p>';
+          '<img src="' + data.thumbnail.source + '" alt="A weasel" class="reward-weasel-img" />' +
+          '<p class="reward-weasel-fact">' + data.extract + '</p>';
 
         rewardContent.hidden = false;
 
       } else {
-        document.getElementById('reward-loading').textContent = 'Could not load badge. But you still passed!';
+        document.getElementById('reward-loading').textContent = 'Could not load weasel wisdom. But you still passed!';
         document.getElementById('reward-loading').hidden = false;
       }
     } else {
-      document.getElementById('reward-loading').textContent = 'Could not load badge. But you still passed!';
+      document.getElementById('reward-loading').textContent = 'Could not load weasel wisdom. But you still passed!';
       document.getElementById('reward-loading').hidden = false;
     }
   };
 
   xhr.onerror = function() {
-    document.getElementById('reward-loading').textContent = 'Could not load badge. But you still passed!';
+    document.getElementById('reward-loading').textContent = 'Could not load weasel wisdom. But you still passed!';
     document.getElementById('reward-loading').hidden = false;
   };
 

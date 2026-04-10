@@ -221,3 +221,21 @@
   text-align: center;
   margin-top: 8px;
 }
+/* Weasel Wikipedia reward */
+.reward-weasel-img {
+  display: block;
+  margin: 0 auto 16px;
+  max-width: 280px;
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid var(--accent);
+}
+
+.reward-weasel-fact {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
