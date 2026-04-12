@@ -243,7 +243,7 @@ function submitQuiz() {
   /* Show the results */
   showResults(correctCount, percentage, passed);
 
-  /* If passed, fetch the Rick and Morty reward */
+  /* If passed, fetch the weasel reward */
   if (passed) {
     fetchWeaselReward();
   }
